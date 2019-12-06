@@ -7,20 +7,17 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import wang.redbean.blog.common.base.entity.BaseEntity;
 
-/**
- * 权限实体类
- */
 @Data
-@TableName(value = "user_group")
-public class UserGroup extends BaseEntity {
+@TableName(value = "user_rights")
+public class UserRights extends BaseEntity {
 
-    @TableId(value = "group_id",type = IdType.AUTO)
-    private Integer groupId;//分组ID
+    @TableId(value = "rights_id",type = IdType.AUTO)
+    private Integer rightsId;//权限ID
 
-    @TableField(value = "user_id",exist = true)
-    private Integer userId;//用户ID
+    @TableField(value = "rights_name",exist = true)
+    private String rightsName;//权限名字
 
     @TableField(value = "rights_type",exist = true)
-    private Integer rightsType;//用户权限
+    private Integer rightsType;//权限编号
 
 }

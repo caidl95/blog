@@ -64,6 +64,8 @@ create table user_login(
 	primary key (login_id)
 	)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户登录信息表'
 
+
+
 create table user_attention(
 	attention_id int(11) NOT NULL AUTO_INCREMENT COMMENT '关注表id',
 	user_id int(11) comment '用户ID',
