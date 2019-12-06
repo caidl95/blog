@@ -2,9 +2,13 @@ package wang.redbean.blog.common.base.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import wang.redbean.blog.common.base.entity.constant.Const;
 import wang.redbean.blog.common.base.entity.response.ServerResponse;
 import wang.redbean.blog.common.base.exception.BaseException;
 import wang.redbean.blog.common.base.service.BaseService;
+import wang.redbean.blog.user.entity.UserMsg;
+
+import javax.servlet.http.HttpSession;
 
 public class BaseController <S extends BaseService> {
 
@@ -24,29 +28,18 @@ public class BaseController <S extends BaseService> {
   /**
      * 获取当前用户id
      */
-  /*  protected final Integer getUidFromSession(HttpSession session) {
-        User user = (User)session.getAttribute(Const.SESSION_KEY_USER);
-        return user.getId();
-    }*/
+  protected final Integer getUidFromSession(HttpSession session) {
+        UserMsg user = (UserMsg) session.getAttribute(Const.SESSION_KEY_USER);
+        return user.getUserId();
+    }
 
     /**
      * 获取当前用户
      */
-   /* protected final User getUserFromSession(HttpSession session){
-        return (User)session.getAttribute(Const.SESSION_KEY_USER);
-    }*/
+   protected final UserMsg getUserFromSession(HttpSession session){
+        return (UserMsg)session.getAttribute(Const.SESSION_KEY_USER);
+    }
 
-    /**
-     * 判断当前用户是否是管理员
-     */
-  /*  protected final boolean getRoleAdminFromSession(HttpSession session) {
-        User user = (User) session.getAttribute(Const.SESSION_KEY_USER);
-        if (user == null)
-            return false;
-        if (user.getRole()<=1)
-            return true;
-        return false;
-    }*/
 
     /**
      * 统一处理异常
