@@ -1,4 +1,4 @@
-url:127.0.0.1
+url:134.175.142.230
 database:weblog
 username:root
 password:1234

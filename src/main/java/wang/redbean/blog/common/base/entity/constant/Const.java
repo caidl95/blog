@@ -1,11 +1,18 @@
 package wang.redbean.blog.common.base.entity.constant;
 
+import java.io.Serializable;
+
 /**
  * 常量类
  * @author hy
  *
  */
-public class Const {
+public class Const implements Serializable {
+
+	/**
+	 * 序列化ID
+	 */
+	private static final long serialVersionUID = 5627921966702931353L;
 
 	/**
 	 * 用户名存入session的key

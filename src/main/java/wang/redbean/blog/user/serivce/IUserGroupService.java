@@ -1,8 +1,9 @@
 package wang.redbean.blog.user.serivce;
 
-import wang.redbean.blog.common.base.service.BaseService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import wang.redbean.blog.user.entity.UserGroup;
 
-public interface IUserGroupService extends BaseService<UserGroup> {
+public interface IUserGroupService extends IService<UserGroup> {
+
 
 }
