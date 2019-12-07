@@ -18,7 +18,7 @@ password:1234
 
 create table user_msg(
 	user_id int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-	user_name varchar(64) COMMENT '用户名',
+	user_name varchar(64) not null COMMENT '用户名',
 	user_nickname varchar(64) not null COMMENT '用户昵称',
 	user_password varchar(64) not null COMMENT '用户密码',
 	user_sex varchar(64) COMMENT '用户性别',
