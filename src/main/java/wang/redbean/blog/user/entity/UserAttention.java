@@ -4,7 +4,7 @@ import lombok.Data;
 import wang.redbean.blog.common.base.entity.BaseEntity;
 
 /**
- * attention
+ * 用户关注实体类
  */
 @Data
 public class UserAttention extends BaseEntity {

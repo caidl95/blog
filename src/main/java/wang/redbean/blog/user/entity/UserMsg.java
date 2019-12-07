@@ -5,7 +5,7 @@ import wang.redbean.blog.common.base.entity.BaseEntity;
 
 
 /**
- *  用户信息表
+ *  用户信息实体类
  */
 @Data
 public class UserMsg extends BaseEntity {

@@ -3,14 +3,13 @@ package wang.redbean.blog.user.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.redbean.blog.common.base.controller.BaseController;
-import wang.redbean.blog.user.serivce.IUserMsgService;
+import wang.redbean.blog.user.serivce.IUserCommentService;
 
 /**
- *  用户信息控制器类
+ * 用户评论控制器类
  */
 @RestController
-@RequestMapping("/user_msg")
-public class UserMsgController extends BaseController<IUserMsgService> {
-
+@RequestMapping("/user_comment")
+public class UserCommentController extends BaseController<IUserCommentService> {
 
 }

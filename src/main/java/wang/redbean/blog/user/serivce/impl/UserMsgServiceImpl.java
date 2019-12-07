@@ -6,6 +6,9 @@ import wang.redbean.blog.user.entity.UserMsg;
 import wang.redbean.blog.user.mapper.UserMsgMapper;
 import wang.redbean.blog.user.serivce.IUserMsgService;
 
+/**
+ * 用户信息业务实现类
+ */
 @Service
 public class UserMsgServiceImpl extends ServiceImpl<UserMsgMapper,UserMsg> implements IUserMsgService {
 

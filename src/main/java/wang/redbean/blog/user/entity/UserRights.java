@@ -4,6 +4,9 @@ package wang.redbean.blog.user.entity;
 import lombok.Data;
 import wang.redbean.blog.common.base.entity.BaseEntity;
 
+/**
+ * 用户权限实体类
+ */
 @Data
 public class UserRights extends BaseEntity {
 

@@ -6,6 +6,9 @@ import wang.redbean.blog.user.entity.UserGroup;
 import wang.redbean.blog.user.mapper.UserGroupMapper;
 import wang.redbean.blog.user.serivce.IUserGroupService;
 
+/**
+ * 权限业务实现类
+ */
 @Service
 public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper,UserGroup> implements IUserGroupService {
 
