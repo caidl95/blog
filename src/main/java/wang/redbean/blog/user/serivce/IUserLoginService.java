@@ -1,8 +1,11 @@
 package wang.redbean.blog.user.serivce;
 
-import wang.redbean.blog.common.base.service.BaseService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import wang.redbean.blog.user.entity.UserLogin;
 
-public interface IUserLoginService extends BaseService<UserLogin> {
+/**
+ * 登录日志业务接口类
+ */
+public interface IUserLoginService extends IService<UserLogin> {
 
 }

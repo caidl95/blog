@@ -1,4 +1,4 @@
-url:127.0.0.1
+url:134.175.142.230
 database:weblog
 username:root
 password:1234
@@ -18,7 +18,7 @@ password:1234
 
 create table user_msg(
 	user_id int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-	user_name varchar(64) COMMENT '用户名',
+	user_name varchar(64) not null COMMENT '用户名',
 	user_nickname varchar(64) not null COMMENT '用户昵称',
 	user_password varchar(64) not null COMMENT '用户密码',
 	user_sex varchar(64) COMMENT '用户性别',
@@ -63,6 +63,8 @@ create table user_login(
 	update_time timestamp not null default current_timestamp on update current_timestamp comment '创建时间',
 	primary key (login_id)
 	)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户登录信息表'
+
+
 
 create table user_attention(
 	attention_id int(11) NOT NULL AUTO_INCREMENT COMMENT '关注表id',

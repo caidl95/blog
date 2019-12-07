@@ -1,12 +1,13 @@
 package wang.redbean.blog.common.base.entity;
 
-import javax.xml.crypto.Data;
+import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Entity基类
  */
+@Data
 public abstract class BaseEntity implements Serializable {
 
 	/**
@@ -17,7 +18,7 @@ public abstract class BaseEntity implements Serializable {
 	/**
 	 * 	操作者
 	 */
-	protected Data createTime;
+	protected Date createTime;
 
 	/**
 	 * 操作时间
@@ -25,26 +26,4 @@ public abstract class BaseEntity implements Serializable {
 	protected Date updateTime;
 
 
-	public BaseEntity() {}
-
-	public BaseEntity(Data createTime, Date updateTime) {
-		this.createTime = createTime;
-		this.updateTime = updateTime;
-	}
-
-	public Data getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Data createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
 }
