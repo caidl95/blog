@@ -7,6 +7,7 @@ import wang.redbean.blog.common.base.entity.constant.Const;
 import wang.redbean.blog.common.base.entity.response.ServerResponse;
 import wang.redbean.blog.common.base.exception.BaseException;
 import wang.redbean.blog.user.entity.UserMsg;
+import wang.redbean.blog.user.entity.vo.UserMsgVo;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,8 +27,8 @@ public class BaseController <S extends IService> {
     /**
      * 获取当前用户
      */
-    protected final UserMsg getUserFromSession(HttpSession session){
-        return (UserMsg)session.getAttribute(Const.SESSION_KEY_USER);
+    protected final UserMsgVo getUserFromSession(HttpSession session){
+        return (UserMsgVo) session.getAttribute(Const.SESSION_KEY_USER);
     }
 
 

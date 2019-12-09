@@ -20,6 +20,11 @@ public class Const implements Serializable {
 	public static final String SESSION_KEY_USER = "SESSION_KEY_USER_DATA";
 
 	/**
+	 * 用户权限存入session的key
+	 */
+	public static final String SESSION_KEY_USER_GROUP = "SESSION_KEY_USER_GROUP";
+
+	/**
 	 * 图形验证码存入session的key
 	 */
 	public static final String SESSION_KEY_IMAGE = "SESSION_KEY_IMAGE_CODE";

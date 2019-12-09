@@ -36,7 +36,7 @@ public class UserMsg extends BaseEntity {
 
     private String userIcon;//用户头像图片
 
-    private String userStatus;//用户状态，0正常1作废
+    private Integer userStatus;//用户状态，0正常1作废
 
 
 }
