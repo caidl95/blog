@@ -39,6 +39,7 @@ public class UserMsgController extends BaseController<IUserMsgService> {
         UserMsg currentUserMsg = getUserFromSession(session);
         userMsg.setUserId(currentUserMsg.getUserId());
         userMsg.setUserName(currentUserMsg.getUserName());
+        userMsg.setUserPassword(null);
         boolean result = service.updateById(userMsg);
         if (result){
             session.setAttribute(Const.SESSION_KEY_USER ,userMsg);

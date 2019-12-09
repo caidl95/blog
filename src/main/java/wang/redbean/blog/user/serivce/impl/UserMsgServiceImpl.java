@@ -31,7 +31,6 @@ public class UserMsgServiceImpl extends ServiceImpl<UserMsgMapper,UserMsg> imple
 
     @Override
     public boolean updateById(UserMsg entity) {
-
         return super.updateById(entity);
     }
 }
