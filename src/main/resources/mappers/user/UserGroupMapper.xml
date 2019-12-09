@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.redbean.blog.user.mapper.UserGroupMapper">
+
+    <select id="selectAll" resultType="wang.redbean.blog.user.entity.vo.UserGroupVo" parameterType="map" >
+        SELECT
+        g.user_id AS userId, r.rights_id AS rightsId,
+        r.rights_name AS rightsName, r.rights_type AS rightsType
+        from user_group g
+        left join user_rights r
+        on g.rights_type = r.rights_type
+        where user_id = #{userId}
+    </select>
+
+
+
+</mapper>

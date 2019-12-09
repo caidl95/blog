@@ -2,9 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wang.redbean.blog.user.mapper.UserMsgMapper">
 
+    <sql id="Base_Column_List">
+        user_id, user_name, user_nickname, user_password, user_sex, user_age, user_area, user_email,user_phone,
+        user_profession, user_position, user_description, user_icon, user_status, create_time, update_time
+    </sql>
+
     <select id="checkUserName" resultType="int" parameterType="string">
         select count(1) from user_msg
         where user_name = #{userName}
+    </select>
+
+    <select id="checkUserPassword" resultType="int" parameterType="map">
+        SELECT count(1) from user_msg
+        where user_password = #{userPassword}
+        and user_id = #{userId}
+    </select>
+
+    <update id="updateUserPassword" parameterType="map">
+        update user_msg
+        set user_password = #{userPassword}
+        where user_id = #{userId}
+    </update>
+
+    <select id="selectLogin" resultType="wang.redbean.blog.user.entity.vo.UserMsgVo"  parameterType="map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from user_msg
+        where user_name = #{userName} and user_password = #{userPassword}
     </select>
 
 </mapper>
