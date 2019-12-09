@@ -19,28 +19,7 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-        <!-- 管理maven依赖 -->
-        <dependency>
-            <groupId>io.spring.platform</groupId>
-            <artifactId>platform-bom</artifactId>
-            <version>Brussels-SR4</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>Dalston.SR2</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -62,7 +41,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <!-- <version>3.0.7.1</version>-->
+            <version>3.0.7.1</version>
         </dependency>
         <!-- lombok -->
         <dependency>
@@ -115,7 +94,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-           <!-- <version>5.2.1.RELEASE</version>-->
+            <version>5.2.1.RELEASE</version>
         </dependency>
     </dependencies>
 
