@@ -5,10 +5,10 @@ package wang.redbean.blog.common.redis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import java.utils.Collection;
+import java.utils.List;
+import java.utils.Map;
+import java.utils.concurrent.TimeUnit;
 
 */
 /**
