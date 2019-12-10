@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import wang.redbean.blog.common.base.entity.constant.Const;
 import wang.redbean.blog.common.base.entity.response.ServerResponse;
 import wang.redbean.blog.common.base.exception.BaseException;
-import wang.redbean.blog.user.entity.UserMsg;
 import wang.redbean.blog.user.entity.vo.UserMsgVo;
 
 import javax.servlet.http.HttpSession;
@@ -20,7 +19,7 @@ public class BaseController <S extends IService> {
      * 获取当前用户id
      */
     protected final Integer getUidFromSession(HttpSession session) {
-        UserMsg user = (UserMsg) session.getAttribute(Const.SESSION_KEY_USER);
+        UserMsgVo user = (UserMsgVo) session.getAttribute(Const.SESSION_KEY_USER);
         return user.getUserId();
     }
 

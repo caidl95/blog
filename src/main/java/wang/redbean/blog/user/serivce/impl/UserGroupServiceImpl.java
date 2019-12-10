@@ -8,6 +8,7 @@ import wang.redbean.blog.user.entity.vo.UserGroupVo;
 import wang.redbean.blog.user.mapper.UserGroupMapper;
 import wang.redbean.blog.user.serivce.IUserGroupService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,5 +22,12 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper,UserGroup>
         if (userId==null||userId == 0)
             throw new BaseException("获取权限的用户ID丢失！");
         return baseMapper.selectByUserId(userId);
+    }
+
+    @Override
+    public boolean deleteByUserIdAndRightsType(Integer userId, Integer rightsType) {
+        if (userId == null || rightsType == null)
+            throw new BaseException("需要删除的用户组信息不明确");
+        return retBool(baseMapper.deleteByUserIdAndRightsType(userId,rightsType));
     }
 }

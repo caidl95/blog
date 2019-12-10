@@ -4,17 +4,17 @@ username:root
 password:1234
 
 /*5.tourist_msg		--游客信息表*/
-1.user_msg			--用户信息表
-2.user_login		--用户登录信息表
-3.user_attention	--用户关注表
-4.user_praise		--用户点赞表
-5.user_rights		--用户权限表
-6.user_comment		--用户评论表
-7.article_category	--文章类别
-8.article_info		--文章详情
-9.article_content	--文章内容
+1.user_msg			-- 用户信息表 -- 只允许个人查看
+2.user_login		-- 用户登录信息表 -- 不做权限控制
+3.user_attention	-- 用户关注表 -- 1 用户默认权限 -- 基础权限
+4.user_praise		-- 用户点赞表 -- 1 用户默认权限
+5.user_rights		-- 用户权限表 -- 3 权限模块 -- 仅管理员开放
+6.user_comment		-- 用户评论表 -- 1 用户默认权限
+7.article_category	-- 文章类别 -- 2 用户默认查看权限 -- 增删改需要额外分配权限
+8.article_info		-- 文章详情 -- 2 用户默认查看权限 -- 增删改需要额外分配权限
+9.article_content	-- 文章内容 -- 2 用户默认查看权限 -- 增删改需要额外分配权限
 
-create table user_msg(
+create table user_msg (
 	user_id int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
 	user_name varchar(64) not null COMMENT '用户名',
 	user_nickname varchar(64) COMMENT '用户昵称',
