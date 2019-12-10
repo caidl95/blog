@@ -14,6 +14,7 @@ import wang.redbean.blog.user.entity.vo.UserGroupVo;
 import wang.redbean.blog.user.entity.vo.UserMsgVo;
 import wang.redbean.blog.user.serivce.IUserGroupService;
 import wang.redbean.blog.user.serivce.IUserMsgService;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -23,16 +24,15 @@ import java.util.List;
  *  用户信息控制器类
  */
 @RestController
-@RequestMapping("/user_msg")
+@RequestMapping("/user/msg")
 public class UserMsgController extends BaseController<IUserMsgService> {
 
     @Autowired
     private IUserGroupService userGroupService;
-
     /**
      * 注册
      */
-    @PostMapping("/sign_in")
+    @PostMapping("/save")
     public ServerResponse<String> signIn(UserMsg userMsg){
         boolean result = service.save(userMsg);
         if (result){
@@ -45,16 +45,19 @@ public class UserMsgController extends BaseController<IUserMsgService> {
      * 登录
      */
     @PostMapping("/login")
-    public ServerResponse<UserMsg> login(HttpSession session, String userName, String userPassword){
+    public ServerResponse<UserMsg> login(HttpServletRequest request, HttpSession session, String userName, String userPassword){
         //验证账号密码
-        UserMsgVo userMsg = service.login(userName,userPassword);
-        //将当前登录的用户权限查找出来
-        List<UserGroupVo> userGroupVoList = userGroupService.selectByUserId(userMsg.getUserId());
-        //放入userMsgVo类
-        userMsg.setUserGroupVoList(userGroupVoList);
+        UserMsgVo userMsg = service.login(request,userName,userPassword);
         //将登录的用户信息及权限存进session
         session.setAttribute(Const.SESSION_KEY_USER, userMsg);
         session.setMaxInactiveInterval(3600);
+        //将当前登录的用户权限查找出来
+        List<UserGroupVo> userGroupVoList = userGroupService.selectByUserId(userMsg.getUserId());
+        if (!userGroupVoList.isEmpty()) {
+            //不为空放入userMsgVo类, 为空则无额外权限
+            userMsg.setUserGroupVoList(userGroupVoList);
+            session.setAttribute(Const.SESSION_KEY_USER_GROUP, userGroupVoList);
+        }
         return ServerResponse.createBySuccess(userMsg);
     }
 
@@ -70,7 +73,7 @@ public class UserMsgController extends BaseController<IUserMsgService> {
     /**
      * 获取当前登录用户信息
      */
-    @GetMapping("/get_user")
+    @GetMapping("/get")
     public ServerResponse<UserMsgVo> getUserInfo(HttpSession session){
         return ServerResponse.createBySuccess(getUserFromSession(session));
     }
@@ -79,11 +82,12 @@ public class UserMsgController extends BaseController<IUserMsgService> {
      * 在线修改个人信息
      */
     @PostMapping("/update_information")
-    public ServerResponse updateInformation(HttpSession session, UserMsg userMsg){
-        //id与name由session中取出保证不被更改,密码不被串改
+    public ServerResponse updateInformation(HttpSession session, UserMsgVo userMsg){
+        //id与name由session中取出保证不被更改,密码不被串改,并保留权限
         UserMsgVo currentUserMsg = getUserFromSession(session);
         userMsg.setUserId(currentUserMsg.getUserId());
         userMsg.setUserName(currentUserMsg.getUserName());
+        userMsg.setUserGroupVoList(currentUserMsg.getUserGroupVoList());
         userMsg.setUserPassword(null);
         boolean result = service.updateById(userMsg);
         if (result){
@@ -103,8 +107,7 @@ public class UserMsgController extends BaseController<IUserMsgService> {
         if (result) {
             session.removeAttribute(Const.SESSION_KEY_USER);
             try {
-                //TODO 页面需更新
-                response.sendRedirect("/index.html");
+                response.sendRedirect("/login.html");
             } catch (IOException e) {
                 throw new BaseException("在线修改密码时重定向失败");
             }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wang.redbean.blog.user.mapper.UserGroupMapper">
 
-    <select id="selectAll" resultType="wang.redbean.blog.user.entity.vo.UserGroupVo" parameterType="map" >
+    <select id="selectByUserId" resultType="wang.redbean.blog.user.entity.vo.UserGroupVo" parameterType="map" >
         SELECT
         g.user_id AS userId, r.rights_id AS rightsId,
         r.rights_name AS rightsName, r.rights_type AS rightsType
@@ -12,6 +12,9 @@
         where user_id = #{userId}
     </select>
 
+    <delete id="deleteByUserIdAndRightsType" parameterType="java.lang.Integer">
+        delete from user_group where user_id = #{userId} and rights_type = #{rightsType}
+    </delete>
 
 
 </mapper>

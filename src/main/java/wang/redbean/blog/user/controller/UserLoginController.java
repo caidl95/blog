@@ -10,7 +10,4 @@ import wang.redbean.blog.user.serivce.IUserLoginService;
  */
 @RestController
 @RequestMapping("/user_login")
-public class UserLoginController extends BaseController<IUserLoginService> {
-
-
-}
+public class UserLoginController extends BaseController<IUserLoginService> {}

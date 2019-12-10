@@ -1,6 +1,8 @@
 package wang.redbean.blog.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import wang.redbean.blog.user.entity.UserGroup;
 import wang.redbean.blog.user.entity.vo.UserGroupVo;
@@ -14,5 +16,8 @@ public interface UserGroupMapper extends BaseMapper<UserGroup> {
 
     @Select("selectByUserId")
     List<UserGroupVo> selectByUserId(Integer userId);
+
+    @Delete("deleteByUserIdAndRightsType")
+    Integer deleteByUserIdAndRightsType(@Param("userId") int userId, @Param("rightsType") Integer rightsType);
 
 }

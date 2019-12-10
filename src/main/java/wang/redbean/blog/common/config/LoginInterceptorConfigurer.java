@@ -20,9 +20,10 @@ public class LoginInterceptorConfigurer implements WebMvcConfigurer {
         //样式
         excludePatterns.add("/comm/**");
         //接口
-        excludePatterns.add("/users/**");
+        excludePatterns.add("/user/msg/save");
         //页面
         excludePatterns.add("/index.html");
+        excludePatterns.add("/login.html");
         // 注册拦截器
         registry
                 .addInterceptor(new LoginInterceptor())

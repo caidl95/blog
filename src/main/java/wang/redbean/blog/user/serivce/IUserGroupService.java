@@ -12,4 +12,6 @@ import java.util.List;
 public interface IUserGroupService extends IService<UserGroup> {
 
     List<UserGroupVo> selectByUserId(Integer userId);
+
+    boolean deleteByUserIdAndRightsType(Integer userId ,Integer rightsType);
 }

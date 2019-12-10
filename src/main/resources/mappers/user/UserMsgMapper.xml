@@ -20,7 +20,8 @@
 
     <update id="updateUserPassword" parameterType="map">
         update user_msg
-        set user_password = #{userPassword}
+        set user_password = #{userPassword},
+        update_time = now()
         where user_id = #{userId}
     </update>
 
