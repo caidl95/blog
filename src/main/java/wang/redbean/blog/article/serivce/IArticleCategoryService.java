@@ -3,6 +3,7 @@ package wang.redbean.blog.article.serivce;
 import com.baomidou.mybatisplus.extension.service.IService;
 import wang.redbean.blog.article.entity.ArticleCategory;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 
@@ -17,27 +18,21 @@ public interface IArticleCategoryService extends IService<ArticleCategory> {
      */
     List<ArticleCategory> findAll();
 
-    /**
-     * 根据类目类别查询
-     * @param categoryType
-     * @return
-     */
-    ArticleCategory getByType(Integer categoryType);
 
     /**
-     * 根据类目名称查询
-     * @param categoryName
+     * 根据参数查询
+     * @param request
+     * @param articleCategory
      * @return
      */
-    ArticleCategory getByName(String categoryName);
+    List<ArticleCategory> getByParam(HttpServletRequest request,ArticleCategory articleCategory);
 
     /**
-     * 根据创建时间查询
-     * @param startTime
-     * @param endTime
+     * 根据参数查询
+     * @param articleCategory
      * @return
      */
-    List<ArticleCategory> getByTime(Date startTime,Date endTime);
+    List<ArticleCategory> getByParam(ArticleCategory articleCategory);
 
     /**
      * 根据id删除类目
