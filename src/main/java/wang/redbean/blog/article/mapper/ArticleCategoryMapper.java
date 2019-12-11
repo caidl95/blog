@@ -21,14 +21,14 @@ public interface ArticleCategoryMapper extends BaseMapper<ArticleCategory> {
     @Select("findAll")
     List<ArticleCategory> findAll();
 
-    @Select("getByType")
+    /*@Select("getByType")
     ArticleCategory getByType(@Param("categoryType") Integer categoryType);
 
     @Select("getByName")
-    ArticleCategory getByName(@Param("categoryName") String categoryName);
+    ArticleCategory getByName(@Param("categoryName") String categoryName);*/
 
     @Select("getByTime")
-    List<ArticleCategory> getByTime(@Param("startTime") Date startTime,@Param("endTime") Date endTime);
+    List<ArticleCategory> getByParam(@Param("articleCategory")ArticleCategory articleCategory,@Param("startTime") Date startTime,@Param("endTime") Date endTime);
 
     @Delete("deleteByIds")
     Integer deleteByIds(@Param("idList") List<Integer> idList);
