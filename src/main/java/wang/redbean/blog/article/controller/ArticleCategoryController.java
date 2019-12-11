@@ -45,7 +45,7 @@ public class ArticleCategoryController extends BaseController<IArticleCategorySe
         }
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     public ResultVo update(ArticleCategory articleCategory){
         boolean result = articleCategoryService.updateById(articleCategory);
         if(result){

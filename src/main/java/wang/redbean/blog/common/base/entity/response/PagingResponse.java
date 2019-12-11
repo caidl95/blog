@@ -91,4 +91,17 @@ public class PagingResponse<T> implements Serializable {
     public void setTotalPage(Integer totalPage) {
         this.totalPage = totalPage;
     }
+
+    @Override
+    public String toString() {
+        return "PagingResponse{" +
+                "data=" + data +
+                ", start=" + start +
+                ", count=" + count +
+                ", amount=" + amount +
+                ", isHasPrevious=" + isHasPrevious +
+                ", isHasNext=" + isHasNext +
+                ", totalPage=" + totalPage +
+                '}';
+    }
 }

@@ -15,4 +15,7 @@ public interface UserLoginMapper extends BaseMapper<UserLogin> {
 
     @Select("getAllToStartAndCount")
     List<UserLogin> getAllToStartAndCount(@Param("dto") UserLoginDto dto);
+
+    @Select("checkAmount")
+    Integer checkAmount(@Param("dto") UserLoginDto dto);
 }

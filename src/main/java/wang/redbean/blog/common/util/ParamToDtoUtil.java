@@ -24,8 +24,12 @@ public class ParamToDtoUtil<P extends BaseParam,D extends BaseDto> {
     public D getParamToDto(P param ,D dto){
         if (param.getCount() != null)
             dto.setCount(param.getCount());
+        else
+            dto.setCount(10);//不传参数默认为10条
         if (param.getStart() != null)
-            dto.setStart(param.getStart());
+            dto.setStart(param.getStart()-1);//用户提交想要的页数减掉一
+        else
+            dto.setStart(0);//不传参数默认为第一页
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             if (StringUtils.isNotBlank(param.getFromTime()))
