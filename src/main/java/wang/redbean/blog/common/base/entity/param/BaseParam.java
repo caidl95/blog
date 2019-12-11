@@ -12,7 +12,7 @@ public abstract class BaseParam implements Serializable {
      */
     private static final long serialVersionUID = -4240382308377617825L;
 
-    private Integer start;      // 开始数据的索引
+    private Integer start = 1;      // 开始数据的索引
 
     private Integer count = 10;  // 每一页的数量
 

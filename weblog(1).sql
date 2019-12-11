@@ -62,8 +62,6 @@ create table user_login(
 	primary key (login_id)
 	)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户登录信息表'
 
-
-
 create table user_attention(
 	attention_id int(11) NOT NULL AUTO_INCREMENT COMMENT '关注表id',
 	user_id int(11) comment '用户ID',
@@ -84,8 +82,6 @@ create table user_praise(
 	primary key (praise_id)
 	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户点赞表'
 
-
-
 create table user_comment(
 	comment_id int(11) NOT NULL AUTO_INCREMENT COMMENT '评论ID',
 	comment_content varchar(64) not null comment '评论内容',
@@ -97,7 +93,6 @@ create table user_comment(
 	primary key (comment_id)
 	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户评论表'
 
-
 /*create table tourist_msg(
 	tourist_id int(11) NOT NULL AUTO_INCREMENT COMMENT '游客ID',
 	tourist_name varchar(64) not null comment '游客昵称',
@@ -107,8 +102,6 @@ create table user_comment(
 	update_time timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
 	primary key (tourist_id)
 	)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '游客信息表'*/
-
-
 
 create table article_category (
 	category_id int(11) NOT NULL AUTO_INCREMENT COMMENT '类目ID',

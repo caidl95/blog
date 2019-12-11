@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import wang.redbean.blog.common.base.controller.BaseController;
 import wang.redbean.blog.common.base.entity.constant.Const;
 import wang.redbean.blog.common.base.entity.response.ServerResponse;
-import wang.redbean.blog.user.entity.UserGroup;
 import wang.redbean.blog.user.entity.vo.UserGroupVo;
 import wang.redbean.blog.user.serivce.IUserGroupService;
-
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -23,6 +21,7 @@ public class UserGroupController extends BaseController<IUserGroupService> {
 
     @PostMapping("/save")
     public ServerResponse allocationRight(Integer userId ,Integer... rightsType){
+        //TODO
         System.err.println(userId);
         System.err.println(rightsType[0]);
         System.err.println(rightsType[1]);

@@ -17,5 +17,4 @@ public class UserAttention extends BaseEntity {
 
     private Integer attentionStatus;//关注状态，0正常1取消
 
-
 }
