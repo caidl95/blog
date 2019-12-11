@@ -1,14 +1,21 @@
 package wang.redbean.blog.article.serivce.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.redbean.blog.article.entity.ArticleCategory;
 import wang.redbean.blog.article.mapper.ArticleCategoryMapper;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
+import wang.redbean.blog.common.util.Tools;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 文章类目业务实现类
@@ -67,37 +74,29 @@ public class ArticleCategoryServiceImpl extends ServiceImpl<ArticleCategoryMappe
         return articleCategoryList;
     }
 
+
     /**
-     * 按照类目类型查询
-     * @param type
+     * 根据参数查询
+     * @param request
+     * @param articleCategory
      * @return
      */
     @Override
-    public ArticleCategory getByType(Integer type) {
-        ArticleCategory articleCategory = baseMapper.getByType(type);
-        return articleCategory;
+    public List<ArticleCategory> getByParam(HttpServletRequest request, ArticleCategory articleCategory) {
+        Date startTime = Tools.StringToDate(request.getParameter("startTime"));
+        Date endTime = Tools.StringToDate(request.getParameter("endTime"));
+        List<ArticleCategory> articleCategoryList = baseMapper.getByParam(articleCategory,startTime,endTime);
+        return articleCategoryList;
     }
 
     /**
-     * 按照类目名称查询
-     * @param categoryName
+     * 根据参数查询
+     * @param articleCategory
      * @return
      */
     @Override
-    public ArticleCategory getByName(String categoryName) {
-        ArticleCategory articleCategory = baseMapper.getByName(categoryName);
-        return articleCategory;
-    }
-
-    /**
-     * 根据创建时间查询
-     * @param startTime
-     * @param endTime
-     * @return
-     */
-    @Override
-    public List<ArticleCategory> getByTime(Date startTime, Date endTime) {
-        List<ArticleCategory> articleCategoryList = baseMapper.getByTime(startTime,endTime);
+    public List<ArticleCategory> getByParam(ArticleCategory articleCategory) {
+        List<ArticleCategory> articleCategoryList = baseMapper.getByParam(articleCategory,null,null);
         return articleCategoryList;
     }
 
