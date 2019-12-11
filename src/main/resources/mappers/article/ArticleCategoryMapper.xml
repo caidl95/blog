@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wang.redbean.blog.article.mapper.ArticleCategoryMapper">
+    
+    <sql id="Base_Colum_List">
+        category_id , category_name , category_type  ,create_time , update_time
+    </sql>
 
     <select id="findAll" resultType="wang.redbean.blog.article.entity.ArticleCategory">
         select
-          category_id , category_name , category_type  ,
-          create_time , update_time
+          <include refid="Base_Colum_List"></include>
         from
           article_category
         where
@@ -13,34 +16,16 @@
 
     </select>
 
-    <select id="getByType" parameterType="Integer" resultType="wang.redbean.blog.article.entity.ArticleCategory">
+    <select id="getByParam" parameterType="map" resultType="wang.redbean.blog.article.entity.ArticleCategory">
         select
-          category_id , category_name , category_type  ,
-          create_time , update_time
-        from
-          article_category
-        where
-          category_type=#{categoryType}
-    </select>
-
-    <select id="getByName" parameterType="String" resultType="wang.redbean.blog.article.entity.ArticleCategory">
-        select
-          category_id , category_name , category_type  ,
-          create_time , update_time
-        from
-          article_category
-        where
-          category_name=#{categoryName}
-    </select>
-
-    <select id="getByTime" parameterType="map" resultType="wang.redbean.blog.article.entity.ArticleCategory">
-        select
-          category_id , category_name , category_type  ,
-          create_time , update_time
+          <include refid="Base_Colum_List"></include>
         from
           article_category
         where
           1=1
+        <if test="articleCategory.categoryName != null and articleCategory.categoryName != ''">and category_name=#{articleCategory.categoryName}</if>
+        <if test="articleCategory.categoryType != null and articleCategory.categoryType != ''">and category_type=#{articleCategory.categoryType}</if>
+        <if test="articleCategory.categoryId != null and articleCategory.categoryId != ''">and category_id = #{articleCategory.categoryId}</if>
         <if test="startTime != null">and create_time &gt;=#{startTime}</if>
         <if test="endTime != null">and create_time &lt;=#{endTime}</if>
     </select>
