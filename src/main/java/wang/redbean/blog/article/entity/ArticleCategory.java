@@ -23,8 +23,4 @@ public class ArticleCategory extends BaseEntity {
 
     private Integer categoryType;//类目编号
 
-    private Date createTime;//创建时间
-
-    private Date updateTime;//修改时间
-
 }
