@@ -44,7 +44,7 @@ public class ArticleCategoryController extends BaseController<IArticleCategorySe
     public ServerResponse delete(@RequestParam(value = "idList",required = true) List<Integer> idList){
         Integer result = articleCategoryService.deleteByIds(idList);
         if(result>0){
-            return ServerResponse.createBySuccessMessage(result+"");//result，返回删除行数
+            return ServerResponse.createBySuccess("删除成功",result);//result，返回删除行数
         }else{
             return ServerResponse.createByErrorMessage("删除失败");
         }
