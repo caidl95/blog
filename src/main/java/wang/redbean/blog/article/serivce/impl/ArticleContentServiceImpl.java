@@ -12,4 +12,25 @@ import wang.redbean.blog.article.serivce.IArticleContentService;
 @Service
 public class ArticleContentServiceImpl extends ServiceImpl<ArticleContentMapper, ArticleContent> implements IArticleContentService {
 
+    /**
+     * 根据文章id修改文章正文
+     * @param articleContent
+     * @return
+     */
+    @Override
+    public Integer updateByArticleId(ArticleContent articleContent) {
+        Integer result = baseMapper.updateByArticleId(articleContent);
+        return result;
+    }
+
+    /**
+     * 根据文章id查询文章正文
+     * @param articleId
+     * @return
+     */
+    @Override
+    public ArticleContent getByArticleId(Integer articleId) {
+        ArticleContent articleContent = baseMapper.getByArticleId(articleId);
+        return articleContent;
+    }
 }

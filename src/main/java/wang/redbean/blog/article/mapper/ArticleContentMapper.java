@@ -1,6 +1,7 @@
 package wang.redbean.blog.article.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import wang.redbean.blog.article.entity.ArticleContent;
 
 /**
@@ -8,5 +9,8 @@ import wang.redbean.blog.article.entity.ArticleContent;
  */
 public interface ArticleContentMapper extends BaseMapper<ArticleContent> {
 
+    Integer updateByArticleId(@Param("articleContent") ArticleContent articleContent);
+
+    ArticleContent getByArticleId(@Param("articleId") Integer articleId);
 
 }
