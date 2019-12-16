@@ -15,6 +15,9 @@ public interface UserMsgMapper extends BaseMapper<UserMsg> {
     @Select("checkUserName")
     Integer checkUserName(String userName);
 
+    @Select("checkUserPhone")
+    Integer checkUserPhone(String userPhone);
+
     @Select("selectLogin")
     UserMsgVo selectLogin(@Param("userName") String userName, @Param("userPassword") String userPassword);
 

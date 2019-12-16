@@ -12,6 +12,11 @@
         where user_name = #{userName}
     </select>
 
+    <select id="checkUserPhone" resultType="int" parameterType="string">
+        select count(1) from user_msg
+        where user_phone = #{userPhone}
+    </select>
+
     <select id="checkUserPassword" resultType="int" parameterType="map">
         SELECT count(1) from user_msg
         where user_password = #{userPassword}
