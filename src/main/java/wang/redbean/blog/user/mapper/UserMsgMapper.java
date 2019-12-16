@@ -12,19 +12,14 @@ import wang.redbean.blog.user.entity.vo.UserMsgVo;
  */
 public interface UserMsgMapper extends BaseMapper<UserMsg> {
 
-    @Select("checkUserName")
     Integer checkUserName(String userName);
 
-    @Select("checkUserPhone")
     Integer checkUserPhone(String userPhone);
 
-    @Select("selectLogin")
     UserMsgVo selectLogin(@Param("userName") String userName, @Param("userPassword") String userPassword);
 
-    @Select("checkUserPassword")
     Integer checkUserPassword(@Param("userPassword") String userPassword, @Param("userId") Integer userId);
 
-    @Update("updateUserPassword")
     Integer updateUserPassword(@Param("userId") Integer userId, @Param("userPassword") String userPassword);
 
 

@@ -13,6 +13,5 @@ import java.util.List;
  */
 public interface UserAttentionMapper extends BaseMapper<UserAttention> {
 
-    @Select("getUserAttention")
     List<UserAttentionVo> getUserAttention(Integer userId);
 }

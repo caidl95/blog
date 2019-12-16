@@ -7,8 +7,12 @@ function reg(){
         layer.msg("注册信息未填写完整！");
         return false;
     }
-    if (password == RetypePassword) {
+    if (password != RetypePassword) {
         layer.msg("两次密码不相同！");
+        return false;
+    }
+    if (!$('#checkbox-terms').is(':checked')){
+        layer.msg("请阅读条款并同意！");
         return false;
     }
     $.ajax({

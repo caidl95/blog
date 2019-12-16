@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>register</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="comm/css/bootstrap.min.css">
-  <link rel="stylesheet" href="comm/css/comm.css">
+  <link rel="stylesheet" href="common/css/bootstrap.min.css">
+  <link rel="stylesheet" href="common/css/comm.css">
 </head>
 <body class="register-page">
 <div class="register-box">
@@ -23,21 +23,21 @@
         <input id="UserPhone" type="email" class="form-control" placeholder="Phone" name="userPhone">
       </div>
       <div class="form-group has-feedback">
-        <input id="UserPassword" type="password" class="form-control" name="userPassword" placeholder="Password">
+        <input id="UserPassword" type="password" class="form-control" name="userPassword" placeholder="Password" autocomplete>
       </div>
       <div class="form-group has-feedback">
-        <input id="RetypeUserPassword" type="password" class="form-control" placeholder="Retype password">
+        <input id="RetypeUserPassword" type="password" class="form-control" placeholder="Retype password" autocomplete>
       </div>
-      <div class="row">
+      <div class="row" >
         <div class="col-xs-8">
-          <div class="checkbox icheck">
+          <div class="checkbox">
             <label>
-              <input type="checkbox"> I agree to the <a href="#">terms</a>
+              <input id="checkbox-terms" type="checkbox"> I agree to the <a href="#">terms</a>
             </label>
           </div>
         </div>
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="reg()">Register</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" onclick="reg()">Register</button>
         </div>
       </div>
     </form>
@@ -48,9 +48,9 @@
     <a href="login.html" class="text-center">I already have a membership</a>
   </div>
 </div>
-<script type="text/javascript" src="comm/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="comm/js/cookie.js"></script>
-<script type="text/javascript" src="comm/layer/layer.js"></script>
-<script type="text/javascript" src="comm/js/register.js"></script>
+<script type="text/javascript" src="common/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="common/js/cookie.js"></script>
+<script type="text/javascript" src="common/layer/layer.js"></script>
+<script type="text/javascript" src="common/js/register.js"></script>
 </body>
 </html>

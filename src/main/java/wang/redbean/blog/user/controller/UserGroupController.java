@@ -20,11 +20,8 @@ import java.util.List;
 public class UserGroupController extends BaseController<IUserGroupService> {
 
     @PostMapping("/save")
-    public ServerResponse allocationRight(Integer userId ,Integer... rightsType){
-        //TODO
-        System.err.println(userId);
-        System.err.println(rightsType[0]);
-        System.err.println(rightsType[1]);
+    public ServerResponse allocationRights(Integer userId ,Integer... rightsType){
+
         return ServerResponse.createBySuccess();
     }
 
