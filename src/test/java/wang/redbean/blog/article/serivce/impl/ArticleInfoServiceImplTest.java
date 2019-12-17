@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import wang.redbean.blog.article.entity.ArticleInfo;
 import wang.redbean.blog.article.entity.ArticleRecived;
@@ -47,7 +48,7 @@ class ArticleInfoServiceImplTest{
         articleRecived.setCategoryType(Integer.valueOf(3));
         articleRecived.setContentBody("假装是一整篇文章内容。。。");
 
-        Integer result = articleInfoService.insert(articleRecived);
+        Integer result = articleInfoService.insert(articleRecived,null);
         System.out.println("result:"+result);
         Assert.assertNotEquals(new Integer(0),result);
     }

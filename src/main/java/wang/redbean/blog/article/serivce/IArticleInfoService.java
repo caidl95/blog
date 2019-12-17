@@ -1,6 +1,7 @@
 package wang.redbean.blog.article.serivce;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 import wang.redbean.blog.article.entity.ArticleContent;
 import wang.redbean.blog.article.entity.ArticleInfo;
 import wang.redbean.blog.article.entity.ArticleRecived;
@@ -19,7 +20,7 @@ public interface IArticleInfoService extends IService<ArticleInfo> {
      * @param articleRecived
      * @return
      */
-    Integer insert(ArticleRecived articleRecived);
+    Integer insert(ArticleRecived articleRecived, MultipartFile file);
 
     /**
      * 根据id删除文章
