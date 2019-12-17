@@ -18,6 +18,21 @@ import java.util.List;
 public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper,UserGroup> implements IUserGroupService {
 
     @Override
+    public boolean allocationRights(Integer userId, Integer... rightsType) {
+        if (userId==null || rightsType==null || rightsType.length==0)
+            throw new BaseException("未选择权限");
+        List<UserGroup> userGroupList = new ArrayList<>();
+        for (Integer rightsId: rightsType){
+            UserGroup userGroup = new UserGroup();
+            userGroup.setUserId(userId);
+            userGroup.setRightsType(rightsId);
+            userGroupList.add(userGroup);
+        }
+        //TODO
+        return false;
+    }
+
+    @Override
     public List<UserGroupVo> selectByUserId(Integer userId) {
         if (userId==null||userId == 0)
             throw new BaseException("获取权限的用户ID丢失！");

@@ -14,10 +14,8 @@ import java.util.List;
  */
 public interface UserGroupMapper extends BaseMapper<UserGroup> {
 
-    @Select("selectByUserId")
     List<UserGroupVo> selectByUserId(Integer userId);
 
-    @Delete("deleteByUserIdAndRightsType")
     Integer deleteByUserIdAndRightsType(@Param("userId") int userId, @Param("rightsType") Integer rightsType);
 
 }

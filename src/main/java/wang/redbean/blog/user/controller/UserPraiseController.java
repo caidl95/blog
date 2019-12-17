@@ -11,4 +11,6 @@ import wang.redbean.blog.user.serivce.IUserPriseService;
 @RestController
 @RequestMapping("/user_praise")
 public class UserPraiseController extends BaseController<IUserPriseService> {
+
+
 }

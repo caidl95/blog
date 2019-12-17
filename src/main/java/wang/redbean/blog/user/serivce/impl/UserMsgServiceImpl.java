@@ -52,7 +52,7 @@ public class UserMsgServiceImpl extends ServiceImpl<UserMsgMapper,UserMsg> imple
 
     @Override
     public UserMsgVo login(HttpServletRequest request, String userName, String userPassword) {
-        if (baseMapper.checkUserName(userName)== 0)
+        if (baseMapper.checkUserName(userName)== 0 || baseMapper.checkUserPhone(userName)==0)
             throw new BaseException("用户名不存在");
         // 密码登录MD5
         UserMsgVo userMsgVo = baseMapper.selectLogin( userName, MD5Util.encrypt(userPassword));

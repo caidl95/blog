@@ -14,20 +14,14 @@ import java.util.List;
  */
 public interface ArticleInfoMapper extends BaseMapper<ArticleInfo> {
 
-    @Insert("save")
     Integer save(@Param("articleRecived")ArticleRecived articleRecived);
 
-    @Delete("deleteByIds")
     Integer deleteByIds(@Param("idList")List<Integer> idList);
 
-    @Update("updateInfoById")
     Integer updateInfoById(@Param("articleInfo") ArticleInfo articleInfo);
 
-    @Select("findAll")
     List<ArticleInfo> findAll();
 
-    @Select("getByParam")
     List<ArticleInfo> getByParam(@Param("articleInfo") ArticleInfo articleInfo, @Param("startTime") Date startTime, @Param("endTime") Date endTime);
-
 
 }

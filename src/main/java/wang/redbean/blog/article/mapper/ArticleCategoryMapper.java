@@ -15,10 +15,8 @@ import java.util.List;
  */
 public interface ArticleCategoryMapper extends BaseMapper<ArticleCategory> {
 
-    @Select("findOne")
     ArticleCategory findOne(Integer id);
 
-    @Select("findAll")
     List<ArticleCategory> findAll();
 
     /*@Select("getByType")
@@ -27,10 +25,8 @@ public interface ArticleCategoryMapper extends BaseMapper<ArticleCategory> {
     @Select("getByName")
     ArticleCategory getByName(@Param("categoryName") String categoryName);*/
 
-    @Select("getByTime")
     List<ArticleCategory> getByParam(@Param("articleCategory")ArticleCategory articleCategory,@Param("startTime") Date startTime,@Param("endTime") Date endTime);
 
-    @Delete("deleteByIds")
     Integer deleteByIds(@Param("idList") List<Integer> idList);
 
 

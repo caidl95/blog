@@ -1,5 +1,8 @@
 package wang.redbean.blog.user.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import wang.redbean.blog.common.base.entity.BaseEntity;
 
@@ -7,8 +10,10 @@ import wang.redbean.blog.common.base.entity.BaseEntity;
  * 用户评论实体类
  */
 @Data
+@TableName("user_comment")
 public class UserComment extends BaseEntity {
 
+    @TableId(value = "comment_id" , type = IdType.AUTO)
     private Integer commentId;//评论ID
 
     private String commentContent;//评论内容

@@ -18,14 +18,16 @@ public class LoginInterceptorConfigurer implements WebMvcConfigurer {
         // 白名单：在黑名单范围内，却不需要登录就可以访问
         List<String> excludePatterns = new ArrayList<>();
         //样式
-        excludePatterns.add("/comm/**");
+        excludePatterns.add("/common/**");
         //接口
         excludePatterns.add("/user/msg/save");
+        excludePatterns.add("/user/msg/login");
         //测试
         excludePatterns.add("/article/category/**");
         //页面
         excludePatterns.add("/index.html");
         excludePatterns.add("/login.html");
+        excludePatterns.add("/register.html");
         // 注册拦截器
         registry
                 .addInterceptor(new LoginInterceptor())
