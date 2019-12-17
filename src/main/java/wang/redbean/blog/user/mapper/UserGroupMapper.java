@@ -18,4 +18,5 @@ public interface UserGroupMapper extends BaseMapper<UserGroup> {
 
     Integer deleteByUserIdAndRightsType(@Param("userId") int userId, @Param("rightsType") Integer rightsType);
 
+    Integer insert( @Param("userGroups") List<UserGroup> userGroups);
 }

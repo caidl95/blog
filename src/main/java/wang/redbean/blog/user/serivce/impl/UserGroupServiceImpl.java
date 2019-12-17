@@ -28,8 +28,7 @@ public class UserGroupServiceImpl extends ServiceImpl<UserGroupMapper,UserGroup>
             userGroup.setRightsType(rightsId);
             userGroupList.add(userGroup);
         }
-        //TODO
-        return false;
+        return retBool( baseMapper.insert(userGroupList));
     }
 
     @Override

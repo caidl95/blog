@@ -27,7 +27,7 @@ public class UserLoginServiceImpl extends ServiceImpl<UserLoginMapper ,UserLogin
         //创建分页类
         PagingResponse<List<UserLogin>> pagingResponse = new PagingResponse<>();
         pagingResponse.setData( baseMapper.getAllToStartAndCount( userLoginDto));
-        Integer amount = baseMapper.checkAmount(userLoginDto);
+        Integer amount = baseMapper.checkAmount( userLoginDto);
         pagingResponse.setAmount( amount);
         PageUtil pageUtil = new PageUtil( userLoginDto.getStart(), userLoginDto.getCount(), amount);
         pagingResponse.setHasNext( pageUtil.isHasNext());

@@ -21,8 +21,10 @@ public class UserGroupController extends BaseController<IUserGroupService> {
 
     @PostMapping("/save")
     public ServerResponse allocationRights(Integer userId ,Integer... rightsType){
-
-        return ServerResponse.createBySuccess();
+        boolean result = service.allocationRights(userId,rightsType);
+        if (result)
+            return ServerResponse.createBySuccess("分配权限成功！");
+        return ServerResponse.createByErrorMessage("分配权限出现未知异常！");
     }
 
     @PostMapping("/delete")

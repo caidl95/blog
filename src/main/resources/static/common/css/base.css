@@ -42,13 +42,17 @@ nav { float: left; height: 50px; line-height: 50px; text-align: center; }
 .banbox { width: 68.5%; overflow: hidden; float: left; border-radius: 3px; margin-bottom: 20px }
 .banner { width: 100%; overflow: hidden; float: left; }
 .fader { position: relative; width: 100%; height: 260px; /*padding-top: 50%;*/ font-family: "futura", arial; overflow: hidden; }
-.fader .slide { position: absolute; width: 100%; top: 0; z-index: 1; opacity: 0; }
+.fader .slide { position: absolute; width: 100%; top: 0; z-index: 1; opacity: 0;-webkit-transition: all 1.0s;-moz-transition: all 1.0s;-ms-transition: all 1.0s;-o-transition: all 1.0s;transition: all 1.0s;}
 .fader .slide img { width: 100%; height: 260px; margin: auto; }
 .fader  .fader .next { position: absolute; height: 32px; line-height: 32px; width: 40px; top: 50%; left: 50px; z-index: 4; margin-top: -25px; cursor: pointer; opacity: 0; transition: all 150ms; }
 .fader .pager_list { position: absolute; width: 100%; height: 26px; padding: 0; line-height: 40px; bottom: 0; text-align: center; z-index: 4; }
 .fader .pager_list li { border-radius: 10px; display: inline-block; width: 10px; height: 10px; margin: 0 7px; background: #fff; opacity: .9; text-indent: -9999px; cursor: pointer; transition: all 150ms; }
 .fader .pager_list li:hover, .fader .pager_list li.active { opacity: 1; background: #12b7de; }
 
+/*weixin*/
+#weixin{
+ font-size:30px;
+}
 /*headline*/
 .headline { width: 30%; float: right; overflow: hidden; }
 .headline ul { height: 260px; }
@@ -74,9 +78,10 @@ nav { float: left; height: 50px; line-height: 50px; text-align: center; }
 .linkmore li a:hover { opacity: 0.5; }
 .whitebg { background: #fff; border-radius: 3px; padding: 20px; margin-bottom: 20px; overflow: hidden; }
 .tab_box { clear: both; position: relative; }
-a.iconfont.icon-zhuye { color: #ef5509; font-size: 36px; }
-a.iconfont.icon-youxiang { color: #FF991A; font-size: 28px; }
-a.iconfont.icon--- { color: #1296DB; }
+a.iconfont.icon-zhuye { color: #ef5509; font-size: 36px;background: url(../images/index/c01.png) no-repeat center; }
+a.iconfont.icon-youxiang { color: #FF991A; font-size: 28px;background: url(../images/index/c02.png) no-repeat center; }
+a.iconfont.icon--- { color: #1296DB;background: url(../images/index/c03.png) no-repeat center; }
+a.iconfont.icon-weixin { color: #07AF12;;background: url(../images/index/c04.png) no-repeat center; }
 /*topnews*/
 .topnews { display: block; margin: 20px 0; background: #000; position: relative; overflow: hidden; border-radius: 3px; max-height: 110px; }
 .topnews img { opacity: .7; }

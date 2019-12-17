@@ -12,6 +12,11 @@
         where user_name = #{userName}
     </select>
 
+    <select id="checkUserEmail" resultType="int" parameterType="string">
+        select count(1) from user_msg
+        where user_email = #{userEmail}
+    </select>
+
     <select id="checkUserPhone" resultType="int" parameterType="string">
         select count(1) from user_msg
         where user_phone = #{userPhone}
