@@ -119,7 +119,7 @@ create table article_info(
 	article_name varchar(64) not null comment '文章标题',
 	article_description varchar(512) not null comment '文章简介',
 	article_status TINYINT(3) NULL DEFAULT '0' COMMENT '文章状态，0正常1作废',
-	article_icon varchar(512) comment '文章图片',
+	article_icon varchar(64) comment '文章图片',
 	category_type int not null comment '文章类目编号',
 	create_time timestamp not null default current_timestamp comment '创建时间',
 	update_time timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
@@ -135,5 +135,13 @@ create table article_content(
 	primary key (content_id)
 	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '文章内容表'
 
-
+create table common_tool(
+    tool_id int(11) not null AUTO_INCREMENT COMMENT '常用工具ID',
+    tool_name varchar(64) not null comment '工具名称',
+    tool_explain varchar(225) not null comment '工具说明',
+    tool_url varchar(64) comment '存放地址',
+    create_time timestamp NOT NULL default current_timestamp COMMENT '创建时间',
+	update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP on update current_timestamp COMMENT '修改时间',
+    primary key (tool_id)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '常用工具'
 

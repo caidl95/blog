@@ -2,6 +2,7 @@ package wang.redbean.blog.article.serivce;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import wang.redbean.blog.article.entity.ArticleCategory;
+import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -21,18 +22,10 @@ public interface IArticleCategoryService extends IService<ArticleCategory> {
 
     /**
      * 根据参数查询
-     * @param request
-     * @param articleCategory
      * @return
      */
-    List<ArticleCategory> getByParam(HttpServletRequest request,ArticleCategory articleCategory);
+    List<ArticleCategory> getByParam(ArticleCategoryParam articleCategoryParam);
 
-    /**
-     * 根据参数查询
-     * @param articleCategory
-     * @return
-     */
-    List<ArticleCategory> getByParam(ArticleCategory articleCategory);
 
     /**
      * 根据id删除类目

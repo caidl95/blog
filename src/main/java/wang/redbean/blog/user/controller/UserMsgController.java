@@ -29,6 +29,7 @@ public class UserMsgController extends BaseController<IUserMsgService> {
 
     @Autowired
     private IUserGroupService userGroupService;
+
     /**
      * 注册
      */
@@ -114,6 +115,5 @@ public class UserMsgController extends BaseController<IUserMsgService> {
         }
         return ServerResponse.createByErrorMessage("在线修改密码出现未知异常");
     }
-
 
 }

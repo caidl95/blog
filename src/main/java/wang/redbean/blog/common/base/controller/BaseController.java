@@ -7,7 +7,6 @@ import wang.redbean.blog.common.base.entity.constant.Const;
 import wang.redbean.blog.common.base.entity.response.ServerResponse;
 import wang.redbean.blog.common.base.exception.BaseException;
 import wang.redbean.blog.user.entity.vo.UserMsgVo;
-
 import javax.servlet.http.HttpSession;
 
 public class BaseController <S extends IService> {

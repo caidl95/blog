@@ -3,10 +3,12 @@ package wang.redbean.blog.article.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wang.redbean.blog.article.entity.ArticleCategory;
+import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
 import wang.redbean.blog.article.serivce.impl.ArticleCategoryServiceImpl;
 import wang.redbean.blog.common.base.controller.BaseController;
 import wang.redbean.blog.common.base.entity.response.ServerResponse;
+import wang.redbean.blog.common.util.FileUtil;
 import wang.redbean.blog.common.util.Tools;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,13 +65,8 @@ public class ArticleCategoryController extends BaseController<IArticleCategorySe
     }
 
     @GetMapping("/get")
-    public ServerResponse get(HttpServletRequest request,ArticleCategory articleCategory){
-       List<ArticleCategory> articleCategoryList = articleCategoryService.getByParam(request,articleCategory);
-       if(articleCategoryList.size()>0){
-           return ServerResponse.createBySuccess("查询成功",articleCategoryList);
-       }else{
-           return  ServerResponse.createByErrorMessage("查询失败");
-       }
+    public ServerResponse get(ArticleCategoryParam articleCategoryParam){
+       return ServerResponse.createBySuccess(articleCategoryService.getByParam(articleCategoryParam));
     }
 
 }

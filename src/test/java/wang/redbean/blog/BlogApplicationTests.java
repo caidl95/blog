@@ -15,7 +15,7 @@ class BlogApplicationTests {
 
     @Test
     void contextLoads() {
-        System.err.println(service.getAllToStartAndCount(new UserLoginParam()));
+       // System.err.println(service.getAllToStartAndCount(new UserLoginParam()));
     }
 
 }

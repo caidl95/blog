@@ -3,13 +3,13 @@ package wang.redbean.blog.article.serivce.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import wang.redbean.blog.article.entity.ArticleCategory;
+import wang.redbean.blog.article.entity.dto.ArticleCategoryDto;
+import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.mapper.ArticleCategoryMapper;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
-import wang.redbean.blog.common.util.Tools;
-import javax.servlet.http.HttpServletRequest;
+import wang.redbean.blog.common.util.ParamToDtoUtil;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,28 +72,18 @@ public class ArticleCategoryServiceImpl extends ServiceImpl<ArticleCategoryMappe
 
     /**
      * 根据参数查询
-     * @param request
-     * @param articleCategory
      * @return
      */
     @Override
-    public List<ArticleCategory> getByParam(HttpServletRequest request, ArticleCategory articleCategory) {
-        Date startTime = Tools.StringToDate(request.getParameter("startTime"));
-        Date endTime = Tools.StringToDate(request.getParameter("endTime"));
-        List<ArticleCategory> articleCategoryList = baseMapper.getByParam(articleCategory,startTime,endTime);
-        return articleCategoryList;
+    public List<ArticleCategory> getByParam(ArticleCategoryParam articleCategoryParam) {
+        ParamToDtoUtil<ArticleCategoryParam, ArticleCategoryDto> paramToDtoUtil = new ParamToDtoUtil<>();
+        ArticleCategoryDto articleCategoryDto = paramToDtoUtil.getParamToDto( articleCategoryParam, new ArticleCategoryDto());
+        articleCategoryDto.setCategoryId(articleCategoryParam.getCategoryId());
+        articleCategoryDto.setCategoryName(articleCategoryParam.getCategoryName());
+        articleCategoryDto.setCategoryType(articleCategoryParam.getCategoryType());
+        return baseMapper.getByParam(articleCategoryDto);
     }
 
-    /**
-     * 根据参数查询
-     * @param articleCategory
-     * @return
-     */
-    @Override
-    public List<ArticleCategory> getByParam(ArticleCategory articleCategory) {
-        List<ArticleCategory> articleCategoryList = baseMapper.getByParam(articleCategory,null,null);
-        return articleCategoryList;
-    }
 
     /**
      * 根据id删除类目

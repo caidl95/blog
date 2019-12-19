@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wang.redbean.blog.article.mapper.ArticleCategoryMapper">
-    
-    <sql id="Base_Colum_List">
+
+    <sql id="Base_Column_List">
         category_id , category_name , category_type  ,create_time , update_time
     </sql>
 
     <select id="findAll" resultType="wang.redbean.blog.article.entity.ArticleCategory">
         select
-          <include refid="Base_Colum_List"></include>
+        <include refid="Base_Column_List"></include>
         from
-          article_category
+        article_category
         where
-          1=1
+        1=1
 
     </select>
 
     <select id="getByParam" parameterType="map" resultType="wang.redbean.blog.article.entity.ArticleCategory">
         select
-          <include refid="Base_Colum_List"></include>
+        <include refid="Base_Column_List"></include>
         from
-          article_category
-        where
-          1=1
-        <if test="articleCategory.categoryName != null and articleCategory.categoryName != ''">and category_name=#{articleCategory.categoryName}</if>
-        <if test="articleCategory.categoryType != null and articleCategory.categoryType != ''">and category_type=#{articleCategory.categoryType}</if>
-        <if test="articleCategory.categoryId != null and articleCategory.categoryId != ''">and category_id = #{articleCategory.categoryId}</if>
-        <if test="startTime != null">and create_time &gt;=#{startTime}</if>
-        <if test="endTime != null">and create_time &lt;=#{endTime}</if>
+            article_category
+        <where>
+            <if test="dto.categoryName != null and dto.categoryName != ''">
+                and category_name=#{dto.categoryName}
+            </if>
+            <if test="dto.categoryType != null and dto.categoryType != ''">
+                and category_type=#{dto.categoryType}
+            </if>
+            <if test="dto.categoryId != null and dto.categoryId != ''">
+                and category_id = #{dto.categoryId}
+            </if>
+            <if test="dto.fromTime != null">
+                and create_time &gt;=#{dto.fromTime}
+            </if>
+            <if test="dto.toTime != null">
+                and create_time &lt;=#{dto.toTime}
+            </if>
+        </where>
     </select>
 
     <delete id="deleteByIds" parameterType="java.util.List" >
         delete from
-          article_category
+        article_category
         where
-          1=2
+        1=2
         <if test="null != idList and idList.size()>0">
             or category_id in
-              <foreach collection="idList" item="id" open="(" close=")" separator="," index="0">
-                  #{id}
-              </foreach>
+            <foreach collection="idList" item="id" open="(" close=")" separator="," index="0">
+                #{id}
+            </foreach>
         </if>
 
     </delete>
