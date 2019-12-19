@@ -137,6 +137,7 @@ create table article_content(
 
 create table common_tool(
     tool_id int(11) not null AUTO_INCREMENT COMMENT '常用工具ID',
+    tool_user_id int(11) not null AUTO_INCREMENT COMMENT '用户id',
     tool_name varchar(64) not null comment '工具名称',
     tool_explain varchar(225) not null comment '工具说明',
     tool_url varchar(64) comment '存放地址',
@@ -145,3 +146,14 @@ create table common_tool(
     primary key (tool_id)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '常用工具'
 
+
+CREATE TABLE common_category (
+    id int(11) NOT NULL AUTO_INCREMENT COMMENT '类别Id',
+    parent_id int(11) DEFAULT NULL COMMENT '父类别id当id=0时说明是根节点,一级类别',
+    name varchar(50) DEFAULT NULL COMMENT '类别名称',
+    status tinyint(1) DEFAULT '1' COMMENT '类别状态1-正常,2-已废弃',
+    sort_order int(4) DEFAULT NULL COMMENT '排序编号,同类展示顺序,数值相等则自然排序',
+    create_time timestamp NOT NULL default current_timestamp COMMENT '创建时间',
+    update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP on update current_timestamp COMMENT '修改时间',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=utf8 COMMENT '分类'
