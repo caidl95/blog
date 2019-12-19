@@ -37,12 +37,11 @@ public class ArticleInfoServiceImpl extends ServiceImpl<ArticleInfoMapper, Artic
      * @return
      */
     @Override
-    public Integer insert(ArticleRecived articleRecived, MultipartFile file) {
+    public boolean insert(ArticleRecived articleRecived, MultipartFile file) {
         //上传图片功能
         articleRecived.setArticleIcon(FileUtil.uploadPic(file,"D://mypro//web_log//articlePic//",articleRecived.getArticleName()));
         articleRecived.setArticleStatus(0);
-        Integer result = baseMapper.save(articleRecived);
-        return result;
+        return retBool(baseMapper.save(articleRecived));
     }
 
     /**

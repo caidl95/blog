@@ -20,7 +20,7 @@ public interface IArticleInfoService extends IService<ArticleInfo> {
      * @param articleRecived
      * @return
      */
-    Integer insert(ArticleRecived articleRecived, MultipartFile file);
+    boolean insert(ArticleRecived articleRecived, MultipartFile file);
 
     /**
      * 根据id删除文章

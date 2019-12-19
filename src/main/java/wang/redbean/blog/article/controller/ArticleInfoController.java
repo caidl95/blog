@@ -34,16 +34,14 @@ public class ArticleInfoController extends BaseController<IArticleInfoService> {
      * @param articleRecived
      * @return
      */
-    @PostMapping("save")
+    @PostMapping("/save")
     public ServerResponse save(HttpSession session, ArticleRecived articleRecived, @RequestParam(value = "file")MultipartFile file){
-//        articleRecived.setUserId(getUidFromSession(session));
-        articleRecived.setUserId(3);
-        Integer result = articleInfoService.insert(articleRecived,file);
-        if(result == 1){
+        articleRecived.setUserId(getUidFromSession(session));
+        boolean result = articleInfoService.insert(articleRecived,file);
+        if(result)
             return ServerResponse.createBySuccessMessage("保存成功");
-        }else{
-            return  ServerResponse.createByErrorMessage("保存失败");
-        }
+        return  ServerResponse.createByErrorMessage("保存失败");
+
     }
 
     /**
