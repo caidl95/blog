@@ -7,8 +7,9 @@ import wang.redbean.blog.article.entity.ArticleInfo;
 import wang.redbean.blog.article.entity.ArticleRecived;
 import wang.redbean.blog.article.mapper.ArticleInfoMapper;
 import wang.redbean.blog.article.serivce.IArticleInfoService;
-import wang.redbean.blog.common.util.DateTimeUtil;
-import wang.redbean.blog.common.util.FileUtil;
+import wang.redbean.blog.core.base.entity.constant.Const;
+import wang.redbean.blog.core.util.DateTimeUtil;
+import wang.redbean.blog.core.util.FileUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -39,7 +40,7 @@ public class ArticleInfoServiceImpl extends ServiceImpl<ArticleInfoMapper, Artic
     @Override
     public boolean insert(ArticleRecived articleRecived, MultipartFile file) {
         //上传图片功能
-        articleRecived.setArticleIcon(FileUtil.uploadPic(file,"D://mypro//web_log//articlePic//",articleRecived.getArticleName()));
+        articleRecived.setArticleIcon(FileUtil.uploadPic(file, Const.ROOT_PATH_IMAGES,articleRecived.getArticleName()));
         articleRecived.setArticleStatus(0);
         return retBool(baseMapper.save(articleRecived));
     }

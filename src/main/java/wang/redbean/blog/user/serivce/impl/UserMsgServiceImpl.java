@@ -4,21 +4,18 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wang.redbean.blog.common.base.exception.BaseException;
-import wang.redbean.blog.common.util.IpUtil;
-import wang.redbean.blog.common.util.MD5Util;
+import wang.redbean.blog.core.base.exception.BaseException;
+import wang.redbean.blog.core.util.IpUtil;
+import wang.redbean.blog.core.util.MD5Util;
 import wang.redbean.blog.user.entity.UserLogin;
 import wang.redbean.blog.user.entity.UserMsg;
-import wang.redbean.blog.user.entity.vo.UserGroupVo;
 import wang.redbean.blog.user.entity.vo.UserMsgVo;
 import wang.redbean.blog.user.mapper.UserMsgMapper;
-import wang.redbean.blog.user.serivce.IUserGroupService;
 import wang.redbean.blog.user.serivce.IUserLoginService;
 import wang.redbean.blog.user.serivce.IUserMsgService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 用户信息业务实现类

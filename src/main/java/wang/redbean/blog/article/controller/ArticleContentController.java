@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import wang.redbean.blog.article.entity.ArticleContent;
 import wang.redbean.blog.article.serivce.IArticleContentService;
 import wang.redbean.blog.article.serivce.impl.ArticleContentServiceImpl;
-import wang.redbean.blog.common.base.controller.BaseController;
-import wang.redbean.blog.common.base.entity.response.ServerResponse;
+import wang.redbean.blog.core.base.controller.BaseController;
+import wang.redbean.blog.core.base.entity.response.ServerResponse;
 
 /**
  * 文章内容控制器类

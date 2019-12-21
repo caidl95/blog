@@ -1,8 +1,7 @@
 package wang.redbean.blog.article.entity.param;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import wang.redbean.blog.common.base.entity.param.BaseParam;
+import wang.redbean.blog.core.base.entity.param.BaseParam;
 
 @Data
 //@EqualsAndHashCode(callSuper = true)

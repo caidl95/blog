@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.redbean.blog.common.mapper.ToolMapper">
+
+    <select id="search" resultType="wang.redbean.blog.common.entity.vo.ToolVo" parameterType="map">
+        SELECT
+            ct.tool_id AS toolId, ct.user_id AS userId, ct.tool_name AS toolName,
+            ct.tool_explain AS toolExplain, ct.tool_url AS toolUrl, ct.category_type AS categoryType,
+            u.user_nickname AS userNickname, cc.category_name AS categoryTypeName
+        from common_tool ct
+        left join user_msg u
+        on ct.user_id = u.user_id
+        left join common_category cc
+        on ct.category_type = cc.category_type
+        where
+        <if test="dto.fromTime != null ">
+            and ct.create_time &gt;= #{dto.fromTime}
+        </if>
+        <if test="dto.toTime != null">
+            and ct.create_time &lt;= #{dto.toTime}
+        </if>
+        ct.tool_id >  #{dto.start} * #{dto.count}
+        order by ct.tool_id limit #{dto.count}
+    </select>
+
+    <select id="checkAmount" resultType="int" parameterType="map" >
+        SELECT count(*) from common_tool
+        <where>
+            <if test="dto.fromTime != null ">
+                and create_time &gt;= #{dto.fromTime}
+            </if>
+            <if test="dto.toTime != null">
+                and create_time &lt;= #{dto.toTime}
+            </if>
+        </where>
+    </select>
+
+</mapper>

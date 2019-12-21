@@ -2,7 +2,7 @@ package wang.redbean.blog.user.serivce.impl;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import wang.redbean.blog.common.base.exception.BaseException;
+import wang.redbean.blog.core.base.exception.BaseException;
 import wang.redbean.blog.user.entity.UserRights;
 import wang.redbean.blog.user.mapper.UserRightsMapper;
 import wang.redbean.blog.user.serivce.IUserRightsService;

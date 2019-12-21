@@ -7,7 +7,7 @@ import wang.redbean.blog.article.entity.dto.ArticleCategoryDto;
 import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.mapper.ArticleCategoryMapper;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
-import wang.redbean.blog.common.util.ParamToDtoUtil;
+import wang.redbean.blog.core.util.ParamToDtoUtil;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;

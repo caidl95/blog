@@ -1,7 +1,7 @@
 package wang.redbean.blog.user.serivce;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import wang.redbean.blog.common.base.entity.response.PagingResponse;
+import wang.redbean.blog.core.base.entity.response.PagingResponse;
 import wang.redbean.blog.user.entity.UserLogin;
 import wang.redbean.blog.user.entity.param.UserLoginParam;
 
@@ -10,6 +10,6 @@ import wang.redbean.blog.user.entity.param.UserLoginParam;
  */
 public interface IUserLoginService extends IService<UserLogin> {
 
-    PagingResponse getAllToStartAndCount(UserLoginParam userLoginParam);
+    PagingResponse search(UserLoginParam userLoginParam);
 
 }

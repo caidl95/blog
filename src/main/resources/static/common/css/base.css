@@ -1,41 +1,9 @@
 @charset "utf-8";
-::-webkit-scrollbar{display: none;}/*隐藏滚动条并且正常使用*/
-/* css */
-* { margin: 0; padding: 0;
- }
-body { font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif; color: #333; background: #E9EAED; line-height: 1.5; overflow-x: hidden; }
-img { border: 0; display: block }
-ul, li { list-style: none; }
-a { text-decoration: none; color: #333; }
-a:hover { color: #000; text-decoration: none; }
 .clear { clear: both; width: 100%; overflow: hidden; height: 20px }
 .fl { float: left!important; }
 .fr { float: right!important; }
-.box, article { width: 1200px; margin: auto; overflow: hidden }
-.navbox { width: 1200px; margin: auto; }
 .mt20 { margin-top: 20px; }
 .blue { color: #00C1DE }
-/*header*/
-header { width: 100%; padding: 5px 0; background: #1C2327; height: 50px;margin-bottom: 15px }
-.logo { float: left; margin-right: 60px; line-height: 50px; color: #FFF; font-size: 22px }
-.title-right{float: right;font-size: 18px;margin:0}
-.logo a { color: #FFF }
-.logo img { margin-top: 14px; }
-.imgscale img { width: 100%; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; -ms-transition: all .5s ease; -o-transition: all .5s ease; transition: all .5s ease; transition: all 0.5s; }
-.imgscale:hover img { transform: scale(1.1); }
-/*nav*/
-nav { float: left; height: 50px; line-height: 50px; text-align: center; }
-#starlist { }
-#starlist li { position: relative; display: inline; float: left; width: max-content; }
-#starlist li a { display: inline; float: left; padding: 0 20px; color: #fff }
-#starlist li a:hover, #starlist #selected, .selected > a, #starlist li:hover { color: #00c1de; }
-#starlist li:hover a { color: #00c1de }
-#starlist ul.sub { overflow: hidden; position: absolute; left: 0; top: 50px; background: #1C2327; display: none; z-index: 9 }
-#starlist ul.sub li { height: 30px; line-height: 30px; font-size: 14px;overflow: hidden;text-align: left; }
-#starlist ul.sub li:last-child { padding-bottom: 10px }
-#starlist ul.sub li a { color: #FFF }
-#starlist ul.sub li a:hover { color: #00c1de }
-#starlist li:hover ul.sub { display: block }
 /*lbox*/
 .lbox { width: 75%; float: left; overflow: hidden }
 /*banner*/
@@ -68,12 +36,6 @@ nav { float: left; height: 50px; line-height: 50px; text-align: center; }
 .headline ul li img { width: 100%; height: 100%; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; -ms-transition: all .5s ease; -o-transition: all .5s ease; transition: all .5s ease; transition: all 0.5s; opacity: .7; }
 .headline ul li:hover img { transform: scale(1.1); opacity: 1 }
 .headline ul li span { bottom: 0; position: absolute; top: 30%; left: 0; right: 0; color: #FFF; text-align: center; font-size: 15px; margin-top: 5px; padding: 0 40px; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2; line-height: 24px; height: 48px; }
-/*tab_buttons*/
-.tab_buttons { margin-bottom: 10px; width: 100%; overflow: hidden; border-bottom: #e4e3e3 1px solid;/* position: relative; */ }
-.tab_buttons li { display: block; font-size: 16px; line-height: 40px; float: left; width: 100px; text-align: center;position: relative; cursor:pointer }
-.newscurrent:after { content: ""; background: #000; width: 100px; height: 2px; position: absolute; bottom: 0; left: 0; }
-.newsitem { display: none; }
-.newsitem:nth-child(1) { display: block; }
 /*rbox*/
 .rbox { width: 23.5%; float: right; overflow: hidden; }
 .card { box-shadow: 0 1px 0 rgba(255,255,255,.1), inset 0 1px 1px rgba(0,0,0,.7); border-radius: 3px; background: url(../images/index/quote-bg.png) no-repeat top right rgba(42,42,42,1); height: 260px; overflow: hidden; margin-bottom: 20px }

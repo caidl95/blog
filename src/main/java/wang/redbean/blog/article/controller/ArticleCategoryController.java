@@ -6,12 +6,10 @@ import wang.redbean.blog.article.entity.ArticleCategory;
 import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
 import wang.redbean.blog.article.serivce.impl.ArticleCategoryServiceImpl;
-import wang.redbean.blog.common.base.controller.BaseController;
-import wang.redbean.blog.common.base.entity.response.ServerResponse;
-import wang.redbean.blog.common.util.FileUtil;
-import wang.redbean.blog.common.util.Tools;
+import wang.redbean.blog.core.base.controller.BaseController;
+import wang.redbean.blog.core.base.entity.response.ServerResponse;
+import wang.redbean.blog.core.util.Tools;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**

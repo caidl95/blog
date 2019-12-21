@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords">
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆芽菜</title>
+    <link rel="shortcut icon" href="common/images/logo.ico">
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/tool.css" rel="stylesheet">
+    <link href="common/css/min.css" rel="stylesheet">
+    <link href="common/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<!--top begin-->
+<header id="header">
+    <div class="navbox">
+        <div class="logo"><a href="">豆芽菜</a></div>
+        <nav>
+            <ul id="starlist">
+                <li><a href="index.html" title="首页" >网站首页</a></li>
+                <li><a href="/">博客</a></li>
+                <li ><a href="/" id="selected">常用工具</a></li>
+            </ul>
+        </nav>
+        <div class="logo title-right">
+            <a >记录</a>
+            <i class="fa fa-hand-o-right" ></i>
+            <a href="login.html">登录/注册</a>
+        </div>
+    </div>
+</header>
+
+<!--top end-->
+<article>
+    <!--lbox begin-->
+    <div class="whitebg">
+        <div class="tab_buttons">
+            <ul>
+                <li class="newscurrent">常用工具</li>
+            </ul>
+        </div>
+        <div id="tool" class="bloglist">
+            <ul v-for="arr in array">
+                <li>
+                    <h3 class="blogtitle">{{arr.toolName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{arr.categoryTypeName}}</h3>
+                    <span class="blogpic">
+                        <img src="common/images/tool/548120145.jpg" ></span>
+                    <p class="blogtext">{{arr.toolExplain}}</p>
+                    <p class="bloginfo"><span>上传者：</span><span><a >{{arr.userNickname}}</a></span>
+
+                    </p>
+                    <a href="/tool/download?path{{arr.toolUrl}}" class="viewmore">点击下载</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</article>
+<script type="text/javascript" src="common/js/jquery-1.9.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    var dataArray;
+    var paging;
+    $.ajax({
+        "url": "/tool/search",
+        "async": false,
+        "type": "GET",
+        "dataType": "json",
+        "success": function (json) {
+            if (json.status == 200) {
+                paging = json.data;
+                dataArray = eval(json.data.data);
+            }
+        }
+    })
+
+    var tool = new Vue({
+        el: '#tool',
+        data:{
+            array:dataArray
+        }
+    })
+</script>
+
+</body>
+</html>

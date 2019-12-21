@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @ServletComponentScan
 @SpringBootApplication
-@MapperScan({"wang.redbean.blog.user.mapper","wang.redbean.blog.article.mapper","wang.redbean.blog.tool.mapper"})
+@MapperScan({"wang.redbean.blog.user.mapper","wang.redbean.blog.article.mapper","wang.redbean.blog.common.mapper"})
 public class BlogApplication {
 
     public static void main(String[] args) {

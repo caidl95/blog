@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import wang.redbean.blog.common.base.entity.BaseEntity;
+import wang.redbean.blog.core.base.entity.BaseEntity;
 
 /**
  * 用户权限实体类

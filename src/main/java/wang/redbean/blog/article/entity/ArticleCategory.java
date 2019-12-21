@@ -4,8 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import wang.redbean.blog.common.base.entity.BaseEntity;
-import java.util.Date;
+import wang.redbean.blog.core.base.entity.BaseEntity;
 
 /**
  * 文章类目实体类
