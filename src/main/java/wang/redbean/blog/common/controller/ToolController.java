@@ -46,7 +46,7 @@ public class ToolController extends BaseController<IToolService> {
         return ServerResponse.createByErrorMessage("修改失败！");
     }
 
-    @GetMapping("/get_id")
+    @GetMapping("/get")
     public ServerResponse getById(Integer toolId){
         return ServerResponse.createBySuccess(service.selectById(toolId));
     }

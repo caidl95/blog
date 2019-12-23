@@ -7,7 +7,7 @@ import wang.redbean.blog.article.entity.dto.ArticleCategoryDto;
 import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.mapper.ArticleCategoryMapper;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
-import wang.redbean.blog.core.util.ParamToDtoUtil;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
@@ -76,8 +76,7 @@ public class ArticleCategoryServiceImpl extends ServiceImpl<ArticleCategoryMappe
      */
     @Override
     public List<ArticleCategory> getByParam(ArticleCategoryParam articleCategoryParam) {
-        ParamToDtoUtil<ArticleCategoryParam, ArticleCategoryDto> paramToDtoUtil = new ParamToDtoUtil<>();
-        ArticleCategoryDto articleCategoryDto = paramToDtoUtil.getParamToDto( articleCategoryParam, new ArticleCategoryDto());
+        ArticleCategoryDto articleCategoryDto = new ArticleCategoryDto(articleCategoryParam);
         articleCategoryDto.setCategoryId(articleCategoryParam.getCategoryId());
         articleCategoryDto.setCategoryName(articleCategoryParam.getCategoryName());
         articleCategoryDto.setCategoryType(articleCategoryParam.getCategoryType());

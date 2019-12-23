@@ -10,7 +10,6 @@ import wang.redbean.blog.core.base.entity.response.PagingResponse;
 import wang.redbean.blog.core.base.exception.BaseException;
 import wang.redbean.blog.core.util.FileUtil;
 import wang.redbean.blog.core.util.PageUtil;
-import wang.redbean.blog.core.util.ParamToDtoUtil;
 import wang.redbean.blog.common.entity.Tool;
 import wang.redbean.blog.common.entity.dto.ToolDto;
 import wang.redbean.blog.common.entity.param.ToolParam;
@@ -58,8 +57,7 @@ public class ToolServiceImpl extends ServiceImpl< ToolMapper,Tool> implements IT
     @Override
     public PagingResponse search(ToolParam toolParam) {
         //将 param 转换为 dto
-        ParamToDtoUtil<ToolParam, ToolDto> paramToDtoUtil = new ParamToDtoUtil<>();
-        ToolDto toolDto = paramToDtoUtil.getParamToDto( toolParam, new ToolDto());
+        ToolDto toolDto = new ToolDto(toolParam);
         //创建分页类
         PagingResponse<List<ToolVo>> pagingResponse = new PagingResponse<>(new PageUtil( toolDto.getStart(), toolDto.getCount(), baseMapper.checkAmount( toolDto)));
         pagingResponse.setData( baseMapper.search( toolDto));

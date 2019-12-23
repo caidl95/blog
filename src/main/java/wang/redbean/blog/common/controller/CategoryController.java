@@ -6,8 +6,6 @@ import wang.redbean.blog.common.service.ICategoryService;
 import wang.redbean.blog.core.base.controller.BaseController;
 import wang.redbean.blog.core.base.entity.response.ServerResponse;
 
-import javax.servlet.http.HttpSession;
-
 @RestController
 @RequestMapping("/category")
 public class CategoryController extends BaseController<ICategoryService> {
@@ -28,8 +26,8 @@ public class CategoryController extends BaseController<ICategoryService> {
      * 品类名称
      */
     @PostMapping("/update")
-    public ServerResponse setCategoryName(Category category){
-        boolean result = service.updateById(category);
+    public ServerResponse setCategoryName( Category category){
+        boolean result = service.updateById( category);
         if (result)
             return ServerResponse.createBySuccess("修改分类成功！");
         return ServerResponse.createByErrorMessage("修改分类失败");

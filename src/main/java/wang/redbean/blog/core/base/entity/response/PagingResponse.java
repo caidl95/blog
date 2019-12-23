@@ -32,12 +32,12 @@ public class PagingResponse<T> implements Serializable {
 
     public PagingResponse(PageUtil pageUtil) {
         this.pageUtil = pageUtil;
-        this.start = pageUtil.getStart();
-        this.count = pageUtil.getCount();
-        this.amount = pageUtil.getTotal();
-        this.isHasNext = pageUtil.isHasNext();
-        this.isHasPrevious = pageUtil.isHasPrevious();
-        this.totalPage = pageUtil.getTotalPage();
+        this.start =  this.pageUtil.getStart();
+        this.count =  this.pageUtil.getCount();
+        this.amount =  this.pageUtil.getTotal();
+        this.isHasNext =  this.pageUtil.isHasNext();
+        this.isHasPrevious =  this.pageUtil.isHasPrevious();
+        this.totalPage =  this.pageUtil.getTotalPage();
     }
 
     public PagingResponse(T data, int start, int count, Integer amount, boolean isHasPrevious, boolean isHasNext, Integer totalPage) {
@@ -48,6 +48,17 @@ public class PagingResponse<T> implements Serializable {
         this.isHasPrevious = isHasPrevious;
         this.isHasNext = isHasNext;
         this.totalPage = totalPage;
+    }
+
+    public PagingResponse(T data, int start, int count, Integer amount, boolean isHasPrevious, boolean isHasNext, Integer totalPage ,PageUtil pageUtil) {
+        this.data = data;
+        this.start = start;
+        this.count = count;
+        this.amount = amount;
+        this.isHasPrevious = isHasPrevious;
+        this.isHasNext = isHasNext;
+        this.totalPage = totalPage;
+        this.pageUtil = pageUtil;
     }
 
     public T getData() {
