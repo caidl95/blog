@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.redbean.blog.user.mapper.UserMapper">
+
+    <resultMap id="userMap" type="wang.redbean.blog.user.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <collection property="roles" ofType="Role">
+            <id property="id" column="id"/>
+            <result column="name" property="name"/>
+        </collection>
+
+    </resultMap>
+
+    <select id="selectByName" parameterType="String" resultMap="userMap">
+		select u.*
+		,r.name
+		from user u
+        LEFT JOIN user_role ur on u.id = ur.user_id
+        LEFT JOIN role r on ur.role_id = r.id
+        where username= #{username}
+	</select>
+
+    <select id="checkUsername" resultType="int" parameterType="string">
+        select count(1) from user
+        where username = #{username}
+    </select>
+
+    <select id="checkPassword" resultType="int" parameterType="map">
+        SELECT count(1) from user
+        where password = #{password}
+        and id = #{id}
+    </select>
+
+    <update id="updateUserPassword" parameterType="map">
+        update user
+        set password = #{password},
+        update_time = now()
+        where id = #{id}
+    </update>
+
+    <select id="selectLogin" parameterType="String" resultMap="userMap">
+        select u.*
+		    ,r.name
+		from user u
+        LEFT JOIN user_role ur on u.id = ur.user_id
+        LEFT JOIN role r on ur.role_id = r.id
+        where username = #{username} and password = #{password}
+    </select>
+
+</mapper>

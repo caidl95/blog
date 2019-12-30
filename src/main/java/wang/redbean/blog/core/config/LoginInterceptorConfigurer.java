@@ -20,8 +20,8 @@ public class LoginInterceptorConfigurer implements WebMvcConfigurer {
         //样式
         excludePatterns.add("/common/**");
         //接口
-        excludePatterns.add("/user/msg/save");
-        excludePatterns.add("/user/msg/login");
+        excludePatterns.add("/users/reg");
+        excludePatterns.add("/users/login");
         excludePatterns.add("/**/search");
         excludePatterns.add("/");
         //测试

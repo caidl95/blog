@@ -25,4 +25,9 @@ public class UserLogin extends BaseEntity {
     @TableField(value = "login_ip")
     private String loginIp;//登录ip
 
+    public UserLogin (Integer id ,String loginIp){
+        this.userId = id;
+        this.loginIp = loginIp;
+    }
+
 }

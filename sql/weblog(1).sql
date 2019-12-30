@@ -14,36 +14,62 @@ password:1234
 8.article_info		-- 文章详情 -- 2 用户默认查看权限 -- 增删改需要额外分配权限
 9.article_content	-- 文章内容 -- 2 用户默认查看权限 -- 增删改需要额外分配权限
 
+create table user(
+	id int(11) NOT NULL AUTO_INCREMENT,
+	username varchar(64) NOT NULL COMMENT '用户名',
+	password varchar(64) NOT NULL COMMENT '密码',
+	create_time timestamp not null default current_timestamp comment '创建时间',
+    update_time timestamp not null default current_timestamp on update current_timestamp comment '创建时间',
+	primary key (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户登录表';
+
+create table role(
+	id int(11) NOT NULL AUTO_INCREMENT,
+	name varchar(64) NOT NULL COMMENT '权限名称',
+	create_time timestamp not null default current_timestamp comment '创建时间',
+    update_time timestamp not null default current_timestamp on update current_timestamp comment '创建时间',
+	primary key (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户权限表';
+
+create table user_role(
+	id int(11) NOT NULL AUTO_INCREMENT,
+	user_id int(11) NOT NULL COMMENT '用户id',
+	role_id int(11) NOT NULL COMMENT '权限id',
+	create_time timestamp not null default current_timestamp comment '创建时间',
+    update_time timestamp not null default current_timestamp on update current_timestamp comment '创建时间',
+	primary key (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户权限分配表';
+
 create table user_msg (
-	user_id int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-	user_name varchar(64) not null COMMENT '用户名',
-	user_nickname varchar(64) COMMENT '用户昵称',
-	user_password varchar(64) not null COMMENT '用户密码',
-	user_sex varchar(64) COMMENT '用户性别',
-	user_age varchar(64) COMMENT '用户年龄',
-	user_area varchar(64) COMMENT '用户地址',
-	user_email varchar(64) COMMENT '用户邮箱',
-	user_phone varchar(64) COMMENT '用户手机号',
-	user_profession varchar(64) COMMENT '用户职业',
-	user_position varchar(64) COMMENT '用户职位',
-	user_description varchar(512) COMMENT '用户个人简介',
-	user_icon varchar(64) COMMENT '用户头像图片地址',
-	user_status TINYINT(3) NOT NULL DEFAULT '0' COMMENT '用户状态，0正常1作废',
+	id int(11) NOT NULL AUTO_INCREMENT,
+	user_id int(11) NOT NULL COMMENT '用户id',
+	nickname varchar(64) COMMENT '用户昵称',
+	sex varchar(64) COMMENT '用户性别',
+	age varchar(64) COMMENT '用户年龄',
+	area varchar(64) COMMENT '用户地址',
+	email varchar(64) COMMENT '用户邮箱',
+	phone varchar(64) COMMENT '用户手机号',
+	profession varchar(64) COMMENT '用户职业',
+	position varchar(64) COMMENT '用户职位',
+	description varchar(512) COMMENT '用户个人简介',
+	icon varchar(64) COMMENT '用户头像图片地址',
+	status TINYINT(3) NOT NULL DEFAULT '0' COMMENT '用户状态，0正常1作废',
 	create_time timestamp not null default current_timestamp COMMENT '创建时间',
 	update_time timestamp not null default current_timestamp on update current_timestamp COMMENT '创建时间',
-	primary key (user_id)
-	)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户信息表'
+	primary key (id)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户信息表'
 
-create table user_group(
+
+/*create table user_group(
  group_id int(11) NOT NULL AUTO_INCREMENT COMMENT '分组ID',
  user_id int(11) comment '用户ID',
  rights_type int not null COMMENT '用户权限',
  create_time timestamp not null default current_timestamp comment '创建时间',
  update_time timestamp not null default current_timestamp on update current_timestamp comment '创建时间',
  primary key (group_id)
- )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户分组表'
+ )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户分组表'*/
 
-create table user_rights (
+/*create table user_rights (
 	rights_id int(11) NOT NULL AUTO_INCREMENT COMMENT '权限ID',
 	rights_name varchar(64) not null comment '权限名字',
 	rights_type int not null comment '权限编号',
@@ -51,7 +77,7 @@ create table user_rights (
 	update_time timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
 	primary key (rights_id),
 	unique key uqe_rights_type (rights_type)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户权限表'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户权限表'*/
 
 create table user_login(
 	login_id int(11) NOT NULL AUTO_INCREMENT COMMENT '登录ID',
@@ -150,7 +176,7 @@ create table common_tool(
 
 CREATE TABLE common_category (
     category_id int(11) NOT NULL AUTO_INCREMENT COMMENT '类别Id',
-    parent_id int(11) DEFAULT NULL COMMENT '父类别id当id=0时说明是根节点,一级类别',
+    parent_id int(11) DEFAULT 0 COMMENT '父类别id当id=0时说明是根节点,一级类别',
     category_name varchar(50) DEFAULT NULL COMMENT '类别名称',
     category_type int not null comment '类目编号',
     category_status tinyint(1) DEFAULT '0' COMMENT '类别状态0-正常,1-已废弃',

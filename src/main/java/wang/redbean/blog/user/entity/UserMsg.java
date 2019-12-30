@@ -14,46 +14,43 @@ import wang.redbean.blog.core.base.entity.BaseEntity;
 @TableName(value = "user_msg")
 public class UserMsg extends BaseEntity {
 
-    @TableId(value = "user_id",type = IdType.AUTO)
+    @TableId(value = "id",type = IdType.AUTO)
+    private Integer id;
+
+    @TableField(value = "user_id")
     private Integer userId;//用户ID
 
-    @TableField(value = "user_name")
-    private String userName; //用户名
+    @TableField(value = "nickname")
+    private String nickname;//用户昵称
 
-    @TableField(value = "user_nickname")
-    private String userNickname;//用户昵称
+    @TableField(value = "sex")
+    private String sex;//用户性别
 
-    @TableField(value = "user_password")
-    private String userPassword;// 用户密码
+    @TableField(value = "age")
+    private String age;//用户年龄
 
-    @TableField(value = "user_sex")
-    private String userSex;//用户性别
+    @TableField(value = "area")
+    private String area;//用户地址
 
-    @TableField(value = "user_age")
-    private String userAge;//用户年龄
+    @TableField(value = "email")
+    private String  email;//用户邮箱
 
-    @TableField(value = "user_area")
-    private String userArea;//用户地址
+    @TableField(value = "phone")
+    private  String phone;//用户手机号
 
-    @TableField(value = "user_email")
-    private String  userEmail;//用户邮箱
+    @TableField(value = "profession")
+    private String profession;//用户职业
 
-    @TableField(value = "user_phone")
-    private  String userPhone;//用户手机号
+    @TableField(value = "position")
+    private String position;//用户职位
 
-    @TableField(value = "user_profession")
-    private String userProfession;//用户职业
+    @TableField(value = "description")
+    private String description;//用户个人简介
 
-    @TableField(value = "user_position")
-    private String userPosition;//用户职位
+    @TableField(value = "icon")
+    private String icon;//用户头像图片
 
-    @TableField(value = "user_description")
-    private String userDescription;//用户个人简介
-
-    @TableField(value = "user_icon")
-    private String userIcon;//用户头像图片
-
-    @TableField(value = "user_status")
-    private Integer userStatus;//用户状态，0正常1作废
+    @TableField(value = "status")
+    private Integer status;//用户状态，0正常1作废
 
 }

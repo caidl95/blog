@@ -8,8 +8,8 @@
             ct.tool_explain AS toolExplain, ct.tool_url AS toolUrl, ct.category_type AS categoryType,
             u.user_nickname AS userNickname, cc.category_name AS categoryTypeName
         from common_tool ct
-        left join user_msg u
-        on ct.user_id = u.user_id
+        left join user u
+        on ct.user_id = u.id
         left join common_category cc
         on ct.category_type = cc.category_type
         where
