@@ -5,6 +5,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import wang.redbean.blog.core.base.entity.constant.Const;
+import wang.redbean.blog.core.base.entity.response.ServerResponse;
 import wang.redbean.blog.user.entity.Role;
 import wang.redbean.blog.user.entity.User;
 
@@ -51,7 +52,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 				response.setContentType("text/json;charset=utf-8");
 				PrintWriter pw = response.getWriter();
 				pw.flush();
-				pw.println("{\"msg\":\"你未有该权限\"}");
+				pw.println(ServerResponse.createByErrorMessage("无权限！"));
 				return false;
 			}
 		}

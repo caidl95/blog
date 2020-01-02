@@ -27,7 +27,7 @@ public class UserController extends BaseController<IUserService> {
     @Autowired
     private IUserMsgService userMsgService;
 
-    @PostMapping("/reg")
+    @RequestMapping("/reg")
     public ServerResponse reg( String username, String password){
         boolean result = service.reg(username,password);
         if (result)

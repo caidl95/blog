@@ -12,4 +12,8 @@ public interface ConstRole  {
      */
     String USER_ROLE_USER = "USER_ROLE_USER";
 
+    /**
+     * 普通权限的id  作为默认注册时分配
+     */
+    Integer USER_ROLE_USER_ID = 2;
 }

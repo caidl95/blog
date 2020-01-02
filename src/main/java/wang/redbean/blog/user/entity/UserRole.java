@@ -1,5 +1,6 @@
 package wang.redbean.blog.user.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,7 +11,7 @@ import wang.redbean.blog.core.base.entity.BaseEntity;
 @TableName("user_role")
 public class UserRole extends BaseEntity {
 
-    @TableId("id")
+    @TableId(value = "id" ,type = IdType.AUTO)
     private Integer id;
 
     @TableField("user_id")
@@ -19,7 +20,7 @@ public class UserRole extends BaseEntity {
     @TableField("role_id")
     private Integer roleId;
 
-
+    public UserRole(){}
     public UserRole (Integer userId ,Integer roleId){
         this.userId = userId;
         this.roleId = roleId;

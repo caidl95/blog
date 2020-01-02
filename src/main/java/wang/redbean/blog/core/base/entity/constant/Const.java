@@ -1,7 +1,5 @@
 package wang.redbean.blog.core.base.entity.constant;
 
-import java.io.Serializable;
-
 /**
  * 常量类
  * @author hy

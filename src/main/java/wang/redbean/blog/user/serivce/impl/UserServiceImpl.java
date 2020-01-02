@@ -4,12 +4,18 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import wang.redbean.blog.core.base.entity.constant.Const;
+import wang.redbean.blog.core.base.entity.constant.ConstRole;
 import wang.redbean.blog.core.base.exception.BaseException;
 import wang.redbean.blog.core.util.MD5Util;
 import wang.redbean.blog.user.entity.User;
 import wang.redbean.blog.user.entity.UserLogin;
+import wang.redbean.blog.user.entity.UserRole;
 import wang.redbean.blog.user.mapper.UserMapper;
+import wang.redbean.blog.user.mapper.UserRoleMapper;
 import wang.redbean.blog.user.serivce.IUserLoginService;
+import wang.redbean.blog.user.serivce.IUserRoleService;
 import wang.redbean.blog.user.serivce.IUserService;
 
 /**
@@ -21,19 +27,33 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
     @Autowired
     private IUserLoginService userLoginService;
 
+    @Autowired
+    private IUserRoleService userRoleService;
+
+
+    @Transactional
     @Override
     public boolean reg(String username, String password) {
         if (StringUtils.isBlank(username) || StringUtils.isBlank(password))
             throw new BaseException("用户名或密码不能为空！");
+        Integer row = baseMapper.checkUsername(username);
+        if (row>=1)
+            throw new BaseException("用户名已存在,请重新输入！");
         User user = new User();
         user.setUsername(username);
         //对新增密码加密
         user.setPassword(MD5Util.encode(password));
-        return super.save(user);
+        boolean result = super.save(user);
+        if (!result)
+            throw new BaseException("新增用户时出现未知异常！");
+        result = userRoleService.save(new UserRole(user.getId(), ConstRole.USER_ROLE_USER_ID));
+        if (!result)
+            throw new BaseException("默认新增用户权限时出现未知异常！");
+        return true;
     }
 
     @Override
-    public User login( String username, String password,String loginIp) {
+    public User login( String username, String password, String loginIp) {
         if (baseMapper.checkUsername(username)== 0)
             throw new BaseException("用户名不存在");
         // 密码登录MD5
