@@ -1,7 +1,7 @@
 package wang.redbean.blog.user.serivce;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import wang.redbean.blog.user.entity.UserComment;
+import wang.redbean.blog.user.model.UserComment;
 
 /**
  * 用户评论实体类业务接口类

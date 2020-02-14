@@ -4,10 +4,10 @@ package wang.redbean.blog.core.interceptor;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import wang.redbean.blog.core.base.entity.constant.Const;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
-import wang.redbean.blog.user.entity.Role;
-import wang.redbean.blog.user.entity.User;
+import wang.redbean.blog.core.base.model.constant.Const;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
+import wang.redbean.blog.user.model.Role;
+import wang.redbean.blog.user.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,7 +1,7 @@
 package wang.redbean.blog.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import wang.redbean.blog.user.entity.UserComment;
+import wang.redbean.blog.user.model.UserComment;
 
 /**
  * 用户评论映射接口类

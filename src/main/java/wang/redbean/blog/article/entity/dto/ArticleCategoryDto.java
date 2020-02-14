@@ -2,7 +2,7 @@ package wang.redbean.blog.article.entity.dto;
 
 import lombok.Data;
 import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
-import wang.redbean.blog.core.base.entity.dto.BaseDto;
+import wang.redbean.blog.core.base.model.dto.BaseDto;
 
 @Data
 public class ArticleCategoryDto extends BaseDto<ArticleCategoryParam> {

@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.redbean.blog.core.base.controller.BaseController;
-import wang.redbean.blog.core.base.entity.constant.Const;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
-import wang.redbean.blog.user.entity.UserMsg;
+import wang.redbean.blog.core.base.model.constant.Const;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
+import wang.redbean.blog.user.model.UserMsg;
 import wang.redbean.blog.user.serivce.IUserMsgService;
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +25,7 @@ public class UserMsgController extends BaseController<IUserMsgService> {
     @PostMapping("/update")
     public ServerResponse updateInformation(HttpSession session, UserMsg userMsg){
         //用户资料只允许当前登录的用户进行修改
-        userMsg.setUserId( getUidFromSession(session));
+        userMsg.setId( getUidFromSession(session));
         boolean result = service.save(userMsg);
         if (result){
             //将修改后的信息覆盖进入session中

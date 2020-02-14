@@ -8,7 +8,7 @@ import wang.redbean.blog.article.entity.ArticleRecived;
 import wang.redbean.blog.article.serivce.IArticleInfoService;
 import wang.redbean.blog.article.serivce.impl.ArticleInfoServiceImpl;
 import wang.redbean.blog.core.base.controller.BaseController;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

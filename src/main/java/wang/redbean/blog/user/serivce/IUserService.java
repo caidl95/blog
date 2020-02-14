@@ -1,7 +1,7 @@
 package wang.redbean.blog.user.serivce;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import wang.redbean.blog.user.entity.User;
+import wang.redbean.blog.user.model.User;
 
 public interface IUserService extends IService<User> {
 

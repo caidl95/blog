@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import wang.redbean.blog.core.base.exception.BaseException;
-import wang.redbean.blog.user.entity.Role;
+import wang.redbean.blog.user.model.Role;
 import wang.redbean.blog.user.mapper.RoleMapper;
 import wang.redbean.blog.user.serivce.IRoleService;
 

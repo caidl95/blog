@@ -89,9 +89,9 @@ class ArticleInfoServiceImplTest{
       //  request = new MockHttpServletRequest();
         /*request.setParameter("startTime","2019-12-13");
         request.setParameter("endTime","2019-12-14");*/
-      //  ArticleInfo entity = new ArticleInfo();
-       // entity.setUserId(2);
-      //  List<ArticleInfo> articleInfoList = articleInfoService.getByParam(request,entity);
+      //  ArticleInfo model = new ArticleInfo();
+       // model.setUserId(2);
+      //  List<ArticleInfo> articleInfoList = articleInfoService.getByParam(request,model);
      //   for(ArticleInfo articleInfo:articleInfoList){
      //       System.out.println("articleInfo:"+articleInfo);
      //   }

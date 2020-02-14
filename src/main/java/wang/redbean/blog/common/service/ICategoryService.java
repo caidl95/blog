@@ -2,7 +2,7 @@ package wang.redbean.blog.common.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import wang.redbean.blog.common.entity.Category;
+import wang.redbean.blog.common.model.Category;
 
 import java.util.List;
 

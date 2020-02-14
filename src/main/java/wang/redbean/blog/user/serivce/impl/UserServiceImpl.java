@@ -5,16 +5,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import wang.redbean.blog.core.base.entity.constant.Const;
-import wang.redbean.blog.core.base.entity.constant.ConstRole;
+import wang.redbean.blog.core.base.model.constant.ConstRole;
 import wang.redbean.blog.core.base.exception.BaseException;
 import wang.redbean.blog.core.util.MD5Util;
-import wang.redbean.blog.user.entity.User;
-import wang.redbean.blog.user.entity.UserLogin;
-import wang.redbean.blog.user.entity.UserRole;
+import wang.redbean.blog.user.model.User;
+import wang.redbean.blog.user.model.UserLogin;
+import wang.redbean.blog.user.model.UserMsg;
+import wang.redbean.blog.user.model.UserRole;
 import wang.redbean.blog.user.mapper.UserMapper;
-import wang.redbean.blog.user.mapper.UserRoleMapper;
 import wang.redbean.blog.user.serivce.IUserLoginService;
+import wang.redbean.blog.user.serivce.IUserMsgService;
 import wang.redbean.blog.user.serivce.IUserRoleService;
 import wang.redbean.blog.user.serivce.IUserService;
 
@@ -30,6 +30,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
     @Autowired
     private IUserRoleService userRoleService;
 
+    @Autowired
+    private IUserMsgService userMsgService;
 
     @Transactional
     @Override
@@ -39,13 +41,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
         Integer row = baseMapper.checkUsername(username);
         if (row>=1)
             throw new BaseException("用户名已存在,请重新输入！");
-        User user = new User();
-        user.setUsername(username);
-        //对新增密码加密
-        user.setPassword(MD5Util.encode(password));
+        User user = new User(username,MD5Util.encode(password));//对新增密码加密
         boolean result = super.save(user);
         if (!result)
             throw new BaseException("新增用户时出现未知异常！");
+        result = userMsgService.save(new UserMsg(user.getId(),user.getUsername()));
+        if (!result)
+            throw new BaseException("默认新增用户信息时出现未知异常！");
         result = userRoleService.save(new UserRole(user.getId(), ConstRole.USER_ROLE_USER_ID));
         if (!result)
             throw new BaseException("默认新增用户权限时出现未知异常！");

@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.redbean.blog.core.base.controller.BaseController;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
-import wang.redbean.blog.user.entity.UserAttention;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
+import wang.redbean.blog.user.model.UserAttention;
 import wang.redbean.blog.user.serivce.IUserAttentionService;
 
 import javax.servlet.http.HttpSession;

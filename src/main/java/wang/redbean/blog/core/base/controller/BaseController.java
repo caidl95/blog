@@ -3,11 +3,11 @@ package wang.redbean.blog.core.base.controller;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import wang.redbean.blog.core.base.entity.constant.Const;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
+import wang.redbean.blog.core.base.model.constant.Const;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
 import wang.redbean.blog.core.base.exception.BaseException;
-import wang.redbean.blog.user.entity.User;
-import wang.redbean.blog.user.entity.UserMsg;
+import wang.redbean.blog.user.model.User;
+import wang.redbean.blog.user.model.UserMsg;
 import javax.servlet.http.HttpSession;
 
 /**

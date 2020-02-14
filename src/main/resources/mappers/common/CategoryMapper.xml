@@ -8,14 +8,14 @@
          create_time AS createTime,update_time  AS updateTime
     </sql>
 
-    <select id="selectByName" resultType="wang.redbean.blog.common.entity.Category" parameterType="java.lang.String">
+    <select id="selectByName" resultType="wang.redbean.blog.common.model.Category" parameterType="java.lang.String">
         select
          <include refid="Base_Column_List"/>
         from common_category
         where category_name = #{categoryName}
     </select>
 
-    <select id="selectCategoryChildrenByParentId" resultType="wang.redbean.blog.common.entity.Category" parameterType="java.lang.Integer">
+    <select id="selectCategoryChildrenByParentId" resultType="wang.redbean.blog.common.model.Category" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
         from common_category

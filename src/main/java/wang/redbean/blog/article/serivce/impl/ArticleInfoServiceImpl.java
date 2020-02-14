@@ -7,7 +7,7 @@ import wang.redbean.blog.article.entity.ArticleInfo;
 import wang.redbean.blog.article.entity.ArticleRecived;
 import wang.redbean.blog.article.mapper.ArticleInfoMapper;
 import wang.redbean.blog.article.serivce.IArticleInfoService;
-import wang.redbean.blog.core.base.entity.constant.Const;
+import wang.redbean.blog.core.base.model.constant.Const;
 import wang.redbean.blog.core.util.DateTimeUtil;
 import wang.redbean.blog.core.util.FileUtil;
 

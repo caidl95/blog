@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wang.redbean.blog.common.mapper.ToolMapper">
 
-    <select id="search" resultType="wang.redbean.blog.common.entity.vo.ToolVo" parameterType="map">
+    <select id="search" resultType="wang.redbean.blog.common.model.vo.ToolVo" parameterType="map">
         SELECT
             ct.tool_id AS toolId, ct.user_id AS userId, ct.tool_name AS toolName,
             ct.tool_explain AS toolExplain, ct.tool_url AS toolUrl, ct.category_type AS categoryType,

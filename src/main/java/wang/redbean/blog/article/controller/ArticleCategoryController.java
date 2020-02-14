@@ -7,7 +7,7 @@ import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
 import wang.redbean.blog.article.serivce.impl.ArticleCategoryServiceImpl;
 import wang.redbean.blog.core.base.controller.BaseController;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
 import wang.redbean.blog.core.util.Tools;
 
 import java.util.List;

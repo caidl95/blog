@@ -3,7 +3,7 @@ package wang.redbean.blog.user.serivce.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import wang.redbean.blog.core.base.exception.BaseException;
-import wang.redbean.blog.user.entity.UserRole;
+import wang.redbean.blog.user.model.UserRole;
 import wang.redbean.blog.user.mapper.UserRoleMapper;
 import wang.redbean.blog.user.serivce.IUserRoleService;
 

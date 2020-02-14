@@ -1,7 +1,7 @@
 package wang.redbean.blog.common.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import wang.redbean.blog.common.entity.Category;
+import wang.redbean.blog.common.model.Category;
 import java.util.List;
 
 public interface CategoryMapper extends BaseMapper<Category> {

@@ -41,8 +41,7 @@ create table user_role(
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '用户权限分配表';
 
 create table user_msg (
-	id int(11) NOT NULL AUTO_INCREMENT,
-	user_id int(11) NOT NULL COMMENT '用户id',
+	id int(11) NOT NULL AUTO_INCREMENT  COMMENT '用户id与登录id为一致',
 	nickname varchar(64) COMMENT '用户昵称',
 	sex varchar(64) COMMENT '用户性别',
 	age varchar(64) COMMENT '用户年龄',

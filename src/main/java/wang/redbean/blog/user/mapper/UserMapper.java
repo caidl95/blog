@@ -2,7 +2,7 @@ package wang.redbean.blog.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
-import wang.redbean.blog.user.entity.User;
+import wang.redbean.blog.user.model.User;
 
 public interface UserMapper extends BaseMapper<User> {
 

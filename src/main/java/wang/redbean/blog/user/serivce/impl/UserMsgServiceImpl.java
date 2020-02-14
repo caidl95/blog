@@ -1,12 +1,10 @@
 package wang.redbean.blog.user.serivce.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.redbean.blog.core.base.exception.BaseException;
-import wang.redbean.blog.user.entity.UserMsg;
+import wang.redbean.blog.user.model.UserMsg;
 import wang.redbean.blog.user.mapper.UserMsgMapper;
-import wang.redbean.blog.user.serivce.IUserLoginService;
 import wang.redbean.blog.user.serivce.IUserMsgService;
 
 import java.util.Date;
@@ -19,10 +17,10 @@ public class UserMsgServiceImpl extends ServiceImpl<UserMsgMapper,UserMsg> imple
 
     @Override
     public boolean save(UserMsg entity) {
-        if (entity.getUserId()!=null)
+        if (entity.getId()!=null)
             throw new BaseException("用户id不能为空！");
         //查询是否存在相同的用户名
-        UserMsg userMsg = baseMapper.selectByUserId(entity.getUserId());
+        UserMsg userMsg = baseMapper.selectById(entity.getId());
         if (userMsg != null)
            return updateById(entity);
         return super.save(entity);

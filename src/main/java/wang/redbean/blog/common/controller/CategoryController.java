@@ -1,10 +1,10 @@
 package wang.redbean.blog.common.controller;
 
 import org.springframework.web.bind.annotation.*;
-import wang.redbean.blog.common.entity.Category;
+import wang.redbean.blog.common.model.Category;
 import wang.redbean.blog.common.service.ICategoryService;
 import wang.redbean.blog.core.base.controller.BaseController;
-import wang.redbean.blog.core.base.entity.response.ServerResponse;
+import wang.redbean.blog.core.base.model.response.ServerResponse;
 
 @RestController
 @RequestMapping("/category")

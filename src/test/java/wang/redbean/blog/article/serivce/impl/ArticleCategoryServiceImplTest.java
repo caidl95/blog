@@ -72,13 +72,13 @@ class ArticleCategoryServiceImplTest {
 
     @Test
     void getByParam(){
-       // ArticleCategory entity = new ArticleCategory();
+       // ArticleCategory model = new ArticleCategory();
         /*Date startDate = FileUtil.StringToDate("2019-12-09 00:00:00");
         Date endDate = FileUtil.StringToDate("2019-12-10 23:00:00");
-        List<ArticleCategory> articleCategoryList = articleCategoryService.getByParam(entity,startDate,endDate);*/
-        //entity.setCategoryType(3);
-      //  entity.setCategoryName("乐事");
-     //   List<ArticleCategory> articleCategoryList = articleCategoryService.getByParam(entity);
+        List<ArticleCategory> articleCategoryList = articleCategoryService.getByParam(model,startDate,endDate);*/
+        //model.setCategoryType(3);
+      //  model.setCategoryName("乐事");
+     //   List<ArticleCategory> articleCategoryList = articleCategoryService.getByParam(model);
       //  for(ArticleCategory articleCategory:articleCategoryList){
       //      System.out.println("articleCategory:"+articleCategory);
      //   }

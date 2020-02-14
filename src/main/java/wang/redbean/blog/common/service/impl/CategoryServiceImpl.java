@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import wang.redbean.blog.common.entity.Category;
+import wang.redbean.blog.common.model.Category;
 import wang.redbean.blog.common.mapper.CategoryMapper;
 import wang.redbean.blog.common.service.ICategoryService;
 import wang.redbean.blog.core.base.exception.BaseException;
