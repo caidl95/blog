@@ -2,13 +2,13 @@ package wang.redbean.blog.core.util;
 
 import wang.redbean.blog.article.entity.ArticleCategory;
 import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
-import wang.redbean.blog.article.serivce.impl.ArticleCategoryServiceImpl;
+import wang.redbean.blog.article.serivce.IArticleCategoryService;
 
 import java.util.List;
 
 public class Tools {
 
-    public static boolean IsTypeExist(Integer type, ArticleCategoryServiceImpl articleCategoryService){
+    public static boolean IsTypeExist(Integer type, IArticleCategoryService articleCategoryService){
         boolean result = false;
         ArticleCategoryParam entity = new ArticleCategoryParam();
         entity.setCategoryType(type);

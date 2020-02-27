@@ -1,11 +1,9 @@
 package wang.redbean.blog.article.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import wang.redbean.blog.article.entity.ArticleCategory;
 import wang.redbean.blog.article.entity.param.ArticleCategoryParam;
 import wang.redbean.blog.article.serivce.IArticleCategoryService;
-import wang.redbean.blog.article.serivce.impl.ArticleCategoryServiceImpl;
 import wang.redbean.blog.core.base.controller.BaseController;
 import wang.redbean.blog.core.base.model.response.ServerResponse;
 import wang.redbean.blog.core.util.Tools;
@@ -19,15 +17,12 @@ import java.util.List;
 @RequestMapping("/article/category")
 public class ArticleCategoryController extends BaseController<IArticleCategoryService> {
 
-    @Autowired
-    private ArticleCategoryServiceImpl articleCategoryService;
-
     @PostMapping("/save")
     public ServerResponse save(ArticleCategory articleCategory){
-        if(Tools.IsTypeExist(articleCategory.getCategoryType(),articleCategoryService)){
+        if(Tools.IsTypeExist(articleCategory.getCategoryType(),service)){
             return ServerResponse.createByErrorMessage("保存失败,该类目类型已存在");
         }else{
-            boolean result = articleCategoryService.save(articleCategory);
+            boolean result = service.save(articleCategory);
             if(result){
                 return ServerResponse.createBySuccessMessage("保存成功");
             }else{
@@ -39,7 +34,7 @@ public class ArticleCategoryController extends BaseController<IArticleCategorySe
 
     @GetMapping("/delete")
     public ServerResponse delete(@RequestParam(value = "idList",required = true) List<Integer> idList){
-        Integer result = articleCategoryService.deleteByIds(idList);
+        Integer result = service.deleteByIds(idList);
         if(result>0){
             return ServerResponse.createBySuccess("删除成功",result);//result，返回删除行数
         }else{
@@ -49,10 +44,10 @@ public class ArticleCategoryController extends BaseController<IArticleCategorySe
 
     @PostMapping("/update")
     public ServerResponse update(ArticleCategory articleCategory){
-        if(Tools.IsTypeExist(articleCategory.getCategoryType(),articleCategoryService)){
+        if(Tools.IsTypeExist(articleCategory.getCategoryType(),service)){
             return ServerResponse.createByErrorMessage("修改失败,该类目类型已存在");
         }else{
-            boolean result = articleCategoryService.updateById(articleCategory);
+            boolean result = service.updateById(articleCategory);
             if(result){
                 return ServerResponse.createByErrorMessage("修改成功");
             }else{
@@ -64,7 +59,7 @@ public class ArticleCategoryController extends BaseController<IArticleCategorySe
 
     @GetMapping("/get")
     public ServerResponse get(ArticleCategoryParam articleCategoryParam){
-       return ServerResponse.createBySuccess(articleCategoryService.getByParam(articleCategoryParam));
+       return ServerResponse.createBySuccess(service.getByParam(articleCategoryParam));
     }
 
 }

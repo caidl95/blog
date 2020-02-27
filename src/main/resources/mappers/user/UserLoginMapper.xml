@@ -6,7 +6,7 @@
        login_id, user_id, login_ip, create_time, update_time
     </sql>
 
-    <select id="getAllToStartAndCount" resultType="wang.redbean.blog.user.model.entity.UserLogin" parameterType="map" >
+    <select id="getAllToStartAndCount" resultType="wang.redbean.blog.user.model.UserLogin" parameterType="map" >
         SELECT
         <include refid="Base_Column_List"/>
         from user_login

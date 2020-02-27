@@ -1,15 +1,12 @@
 package wang.redbean.blog.article.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import wang.redbean.blog.article.entity.ArticleInfo;
 import wang.redbean.blog.article.entity.ArticleRecived;
 import wang.redbean.blog.article.serivce.IArticleInfoService;
-import wang.redbean.blog.article.serivce.impl.ArticleInfoServiceImpl;
 import wang.redbean.blog.core.base.controller.BaseController;
 import wang.redbean.blog.core.base.model.response.ServerResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -21,9 +18,6 @@ import java.util.List;
 @RequestMapping("/article/info")
 public class ArticleInfoController extends BaseController<IArticleInfoService> {
 
-    @Autowired
-    private ArticleInfoServiceImpl articleInfoService;
-
     /**
      * 新增一个用户
      * @param session
@@ -33,7 +27,7 @@ public class ArticleInfoController extends BaseController<IArticleInfoService> {
     @PostMapping("/save")
     public ServerResponse save(HttpSession session, ArticleRecived articleRecived, @RequestParam(value = "file")MultipartFile file){
         articleRecived.setUserId(getUidFromSession(session));
-        boolean result = articleInfoService.insert(articleRecived,file);
+        boolean result = service.insert(articleRecived,file);
         if(result)
             return ServerResponse.createBySuccessMessage("保存成功");
         return  ServerResponse.createByErrorMessage("保存失败");
@@ -47,7 +41,7 @@ public class ArticleInfoController extends BaseController<IArticleInfoService> {
      */
     @GetMapping("/delete")
     public ServerResponse delete(@RequestParam(value = "idList",required=true) List<Integer> idList){
-        Integer result = articleInfoService.deleteByIds(idList);
+        Integer result = service.deleteByIds(idList);
         if(result>0){
             return  ServerResponse.createBySuccess("删除成功",result);
         }else{
@@ -57,7 +51,7 @@ public class ArticleInfoController extends BaseController<IArticleInfoService> {
 
     @PostMapping("/update")
     public  ServerResponse update(ArticleInfo articleInfo){
-        Integer result = articleInfoService.updateInfoById(articleInfo);
+        Integer result = service.updateInfoById(articleInfo);
         if(result>0){
             return  ServerResponse.createBySuccessMessage("修改成功");
         }else{
@@ -67,7 +61,7 @@ public class ArticleInfoController extends BaseController<IArticleInfoService> {
 
     @GetMapping("/get")
     public ServerResponse get(HttpServletRequest request ,ArticleInfo articleInfo){
-        List<ArticleInfo> articleInfoList =articleInfoService.getByParam(request,articleInfo);
+        List<ArticleInfo> articleInfoList = service.getByParam(request,articleInfo);
         if(articleInfoList.size()>0){
             return ServerResponse.createBySuccess("查询成功",articleInfoList);
         }else{

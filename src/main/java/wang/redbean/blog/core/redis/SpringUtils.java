@@ -1,3 +1,4 @@
+/*
 package wang.redbean.blog.core.redis;
 
 import org.springframework.beans.BeansException;
@@ -44,3 +45,4 @@ public class SpringUtils implements ApplicationContextAware {
     }
 
 }
+*/
