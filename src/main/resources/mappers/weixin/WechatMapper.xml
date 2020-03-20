@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.redbean.blog.weixin.mapper.WechatMapper">
+
+    <sql id="Base_Column_List">
+       id, open_id, nick_name, sex, province, city, country, headimgurl, language, create_time, update_time
+    </sql>
+
+    <select id="selectByOpenId" parameterType="String"  resultType="wang.redbean.blog.weixin.mapper.WechatMapper">
+        select
+        <include refid="Base_Column_List"/>
+        from wechat_user
+        where open_id = #{openId}
+    </select>
+
+</mapper>

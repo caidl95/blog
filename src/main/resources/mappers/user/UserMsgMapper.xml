@@ -8,7 +8,7 @@
     </sql>
 
 
-    <select id="selectByUserId" resultType="int" >
+    <select id="selectByUserId" resultType="wang.redbean.blog.user.model.UserMsg" >
         select
         <include refid="Base_Column_List"/>
         from user_msg

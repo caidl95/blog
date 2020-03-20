@@ -19,6 +19,7 @@ public class LoginInterceptorConfigurer implements WebMvcConfigurer {
         List<String> excludePatterns = new ArrayList<>();
         //样式
         excludePatterns.add("/common/**");
+        excludePatterns.add("/wechat/**");
         //接口
         excludePatterns.add("/users/reg");
         excludePatterns.add("/users/login");

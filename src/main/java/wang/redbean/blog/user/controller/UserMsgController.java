@@ -10,6 +10,7 @@ import wang.redbean.blog.core.base.model.response.ServerResponse;
 import wang.redbean.blog.user.model.UserMsg;
 import wang.redbean.blog.user.serivce.IUserMsgService;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Service;
 
 /**
  *  用户信息控制器类
@@ -43,6 +44,11 @@ public class UserMsgController extends BaseController<IUserMsgService> {
     @GetMapping("/get")
     public ServerResponse getUserMsgInfo(HttpSession session){
         return ServerResponse.createBySuccess(getUserMsgFromSession(session));
+    }
+
+    @GetMapping("/select")
+    public ServerResponse getUserMsgInfoById(Integer id){
+        return ServerResponse.createBySuccess(service.getByUserId(id));
     }
 
 }
