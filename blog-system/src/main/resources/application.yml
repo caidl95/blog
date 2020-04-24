@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8000
 
 spring:
   datasource:
@@ -19,7 +19,7 @@ jwt:
   # 过期时间 单位秒 1天后过期=86400 7天后过期=604800
   expiration: 86400
   # 配置不需要认证的接口
-  antMatchers: /swagger-ui.html/**,/v2/api-docs,/webjars/**,/swagger-resources/**,/v2/**,/index.html,/common/**,/ordinary/**
+  antMatchers: /swagger-ui.html/**,/v2/api-docs,/webjars/**,/swagger-resources/**,/v2/**
 
 mybatis-plus:
   mapper-locations: classpath:mappers/*/*.xml
