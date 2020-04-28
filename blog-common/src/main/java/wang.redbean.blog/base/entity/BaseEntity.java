@@ -18,9 +18,6 @@ import java.util.Date;
 @Setter
 public abstract class BaseEntity implements Serializable {
 
-	/**
-	 * 序列化ID
-	 */
 	private static final long serialVersionUID = 5627921366102901306L;
 
 	@ApiParam(name="id",value="ID")
@@ -35,8 +32,7 @@ public abstract class BaseEntity implements Serializable {
 	@TableField("update_time")
 	protected Date updateTime;
 
-	public BaseEntity() {
-	}
+	public BaseEntity() {}
 
 	public BaseEntity(Long id) {
 		this.id = id;

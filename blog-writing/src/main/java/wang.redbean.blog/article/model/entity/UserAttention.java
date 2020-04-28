@@ -1,8 +1,6 @@
 package wang.redbean.blog.article.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +13,6 @@ import wang.redbean.blog.base.entity.BaseEntity;
 @Setter
 @TableName("user_attention")
 public class UserAttention extends BaseEntity {
-
-    @TableId(value = "attention_id" , type = IdType.AUTO)
-    protected Integer attentionId;//关注表id
 
     @TableField("username")
     protected String username;//用户

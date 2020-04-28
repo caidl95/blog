@@ -15,7 +15,7 @@ import wang.redbean.blog.base.entity.BaseEntity;
 public class ArticleContent extends BaseEntity {
 
     @TableField("article_id")
-    private Integer articleId;//文章ID
+    private Long articleId;//文章ID
 
     @TableField("content_body")
     private String contentBody;//文章正文

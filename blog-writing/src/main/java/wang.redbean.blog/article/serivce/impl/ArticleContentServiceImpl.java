@@ -19,14 +19,14 @@ public class ArticleContentServiceImpl extends ServiceImpl<ArticleContentMapper,
      */
     @Override
     public boolean updateByArticleId(ArticleContent articleContent) {
-        return ValidationUtil.retBool( baseMapper.update(articleContent,new QueryWrapper<ArticleContent>().eq("article_id",articleContent.getArticleId())));
+        return ValidationUtil.retBool( baseMapper.update(articleContent,new QueryWrapper<ArticleContent>().lambda().eq(ArticleContent::getArticleId,articleContent.getArticleId())));
     }
 
     /**
      * 根据文章id查询文章正文
      */
     @Override
-    public ArticleContent getByArticleId(Integer articleId) {
-        return baseMapper.selectOne(new QueryWrapper<ArticleContent>().eq("article_id",articleId));
+    public ArticleContent getByArticleId(Long articleId) {
+        return baseMapper.selectOne(new QueryWrapper<ArticleContent>().lambda().eq(ArticleContent::getArticleId,articleId));
     }
 }

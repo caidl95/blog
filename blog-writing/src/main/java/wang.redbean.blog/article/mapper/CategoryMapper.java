@@ -8,7 +8,5 @@ import java.util.List;
 @Mapper
 public interface CategoryMapper extends BaseMapper<Category> {
 
-    Category selectByName(String categoryName);
-
     List<Category> selectCategoryChildrenByParentId(Long parentId);
 }

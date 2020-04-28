@@ -10,6 +10,6 @@ public interface IArticleContentService extends IService<ArticleContent> {
 
     boolean updateByArticleId(ArticleContent articleContent);
 
-    ArticleContent getByArticleId(Integer articleId);
+    ArticleContent getByArticleId(Long articleId);
 
 }

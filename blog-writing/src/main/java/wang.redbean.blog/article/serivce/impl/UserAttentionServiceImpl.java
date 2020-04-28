@@ -1,5 +1,6 @@
 package wang.redbean.blog.article.serivce.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import wang.redbean.blog.article.mapper.UserAttentionMapper;
@@ -25,6 +26,7 @@ public class UserAttentionServiceImpl extends ServiceImpl<UserAttentionMapper, U
 
     @Override
     public List<UserAttentionVo> getUserAttention(String username) {
-        return baseMapper.getUserAttention(username);
+       // return baseMapper.selectList(new QueryWrapper<>(UserAttention))
+        return null;
     }
 }

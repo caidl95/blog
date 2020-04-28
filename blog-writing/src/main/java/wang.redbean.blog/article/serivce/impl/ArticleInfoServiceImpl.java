@@ -31,7 +31,7 @@ public class ArticleInfoServiceImpl extends ServiceImpl<ArticleInfoMapper, Artic
      * 根据id删除一篇文章
      */
     @Override
-    public boolean deleteByIds(List<Integer> idList) {
+    public boolean deleteByIds(List<Long> idList) {
         //删除文章信息
         return ValidationUtil.retBool(baseMapper.deleteBatchIds(idList));
     }

@@ -14,5 +14,5 @@ import java.util.List;
 @Mapper
 public interface UserAttentionMapper extends BaseMapper<UserAttention> {
 
-    List<UserAttentionVo> getUserAttention(String username);
+
 }

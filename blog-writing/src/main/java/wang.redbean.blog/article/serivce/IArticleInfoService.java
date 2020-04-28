@@ -23,7 +23,7 @@ public interface IArticleInfoService extends IService<ArticleInfo> {
      * @param idList
      * @return
      */
-    boolean deleteByIds(List<Integer> idList);
+    boolean deleteByIds(List<Long> idList);
 
 
 

@@ -36,18 +36,18 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
 
     public BaseVo queryAllByPaging(LogQueryCriteria criteria){
         IPage<Log> userPage = baseMapper.selectPage(new Page<>(criteria.getCurrent(), criteria.getSize())
-                ,new QueryWrapper<Log>().eq("log_type",criteria.getLogType()));
+                ,new QueryWrapper<Log>().lambda().eq( Log::getLogType, criteria.getLogType()));
         return new BaseVo<>( userPage.getCurrent(), userPage.getSize(), userPage.getTotal(), userPage.getPages(),userPage.getRecords());
     }
 
 
     public List<Log> queryAllByLogType(String logType) {
-        return baseMapper.selectList(new QueryWrapper<Log>().eq("log_type",logType));
+        return baseMapper.selectList(new QueryWrapper<Log>().lambda().eq( Log::getLogType,logType));
     }
 
     public Object queryAllByUser(LogQueryCriteria criteria) {
         IPage<Log> logPage = baseMapper.selectPage(new Page<>(criteria.getCurrent(), criteria.getSize())
-                ,new QueryWrapper<Log>().eq("log_type",criteria.getLogType()).eq("username",criteria.getUsername()));
+                ,new QueryWrapper<Log>().lambda().eq( Log::getLogType,criteria.getLogType()).eq( Log::getUsername, criteria.getUsername()));
         return new BaseVo<>( logPage.getCurrent(), logPage.getSize(), logPage.getTotal(), logPage.getPages(),logPage.getRecords());
     }
 
@@ -96,7 +96,7 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
 
     @Override
     public Object findByErrDetail(Long id) {
-        Log log = baseMapper.selectOne(new QueryWrapper<Log>().eq("log_type","ERROR").eq("id",id));
+        Log log = baseMapper.selectOne(new QueryWrapper<Log>().lambda().eq( Log::getLogType,"ERROR").eq( Log::getId, id));
         ValidationUtil.isNull( log.getId(),"Log","id", id);
         byte[] details = log.getExceptionDetail();
         return Dict.create().set("exception",new String(ObjectUtil.isNotNull(details) ? details : "".getBytes()));
@@ -122,11 +122,11 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
 
     @Override
     public void delAllByError() {
-        baseMapper.delete(new QueryWrapper<Log>().eq("log_type","ERROR"));
+        baseMapper.delete(new QueryWrapper<Log>().lambda().eq( Log::getLogType,"ERROR"));
     }
 
     @Override
     public void delAllByInfo() {
-        baseMapper.delete(new QueryWrapper<Log>().eq("log_type","INFO"));
+        baseMapper.delete(new QueryWrapper<Log>().lambda().eq( Log::getLogType,"INFO"));
     }
 }

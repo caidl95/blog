@@ -1,5 +1,6 @@
 package wang.redbean.blog.article.serivce.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -16,11 +17,12 @@ import java.util.Set;
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements ICategoryService {
 
+
     @Override
     public boolean save(Category entity) {
         if (entity.getParentId() == null || StringUtils.isBlank(entity.getName()))
             throw new BadRequestException("添加品类参数错误");
-        Category result = baseMapper.selectByName(entity.getName());
+        Category result = baseMapper.selectOne(new QueryWrapper<Category>().lambda().eq(Category::getName,entity.getName()));
         if (result != null)
             throw new BadRequestException("已有此份类，无法添加");
         if (CollectionUtils.isEmpty(selectCategoryAndChildrenById(entity.getParentId())))
